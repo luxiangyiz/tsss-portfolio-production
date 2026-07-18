@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "project": "project-016-zwd-portfolio-production",
-  "total_files": 144,
+  "total_files": 146,
   "files": [
     {
       "path": ".dockerignore",
@@ -64,8 +64,16 @@
       "sha256": "6ae25c24c369d28548baaeb71995099f2d090cd7b9bc6699823134ac0b043966"
     },
     {
+      "path": "docs/仓库脱敏整改执行报告-A-I.md",
+      "sha256": "e043bcf79e70868d06567138c1566fe89c0eb6a9fe4871b105f9ecbbc5a90514"
+    },
+    {
       "path": "docs/执行报告-阶段0-4-6.md",
       "sha256": "b98d4e9f8d7daa10c0c49721e6bb57a7240f8f4d988172f06f19ce320a1b2092"
+    },
+    {
+      "path": "docs/阶段J-K-GitHub移交说明.md",
+      "sha256": "2a68fe65c22ff4ea68c8af5dc63422e862a4cd5e9d03edbcbc31773fc64a1311"
     },
     {
       "path": "manifests/source-sync-manifest.json",
