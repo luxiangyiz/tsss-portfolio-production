@@ -38,6 +38,7 @@ CONTACT_ALLOWLIST = {
         "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",  # 联系页渲染
         "tools/scan-secrets.py",   # 扫描器 allowlist 定义自身
         ".gitleaks.toml",          # Gitleaks 配置 allowlist 定义
+        ".github/workflows/verify.yml",  # CI allowlist 路径检查步骤
     ],
     "allowed_path_prefixes": [
         "docs/",   # 文档可记载 allowlist 本身

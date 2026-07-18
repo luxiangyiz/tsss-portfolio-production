@@ -433,7 +433,7 @@
     },
     {
       "path": "tools/scan-secrets.py",
-      "sha256": "df0dce1791319c400df861a4c285e4b2b3ee7aa08b96a43a8af801e4a2bdf1fc"
+      "sha256": "6c39588352595c2e23f4762f8e25d95ab6c423b50998a81a2171a923ec23a7cf"
     },
     {
       "path": "tools/sync-public-source.ps1",
