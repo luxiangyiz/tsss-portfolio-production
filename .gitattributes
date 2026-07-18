@@ -1,0 +1,31 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Shell scripts — LF only
+*.sh text eol=lf
+
+# Python — LF only
+*.py text eol=lf
+
+# YAML — LF only
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# PHP — LF only
+*.php text eol=lf
+
+# HTML/CSS/JS — LF only
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+
+# Markdown — LF only
+*.md text eol=lf
+
+# Docker — LF only
+Dockerfile text eol=lf
+.dockerignore text eol=lf
+
+# PowerShell — CRLF
+*.ps1 text eol=crlf
