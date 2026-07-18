@@ -110,10 +110,14 @@ $requiredFiles = @(
     "tools/scan-secrets.py",
     "tools/verify-public-content.py"
 )
+# 一次性获取跟踪文件集合，避免 --error-unmatch 触发终止错误
+$allTrackedSet = @{}
+foreach ($tf in (git -c core.quotepath=false ls-files)) {
+    $allTrackedSet[$tf.Trim()] = $true
+}
 $missingTracked = @()
 foreach ($f in $requiredFiles) {
-    $tracked = git ls-files --error-unmatch $f 2>$null
-    if ($LASTEXITCODE -ne 0) {
+    if (-not $allTrackedSet.ContainsKey($f)) {
         $missingTracked += $f
     }
 }
@@ -214,11 +218,16 @@ if ($missingOnDisk.Count -eq 0) {
 # ============================================================
 # 检查 11: 没有必要文件处于 ignored 状态
 # ============================================================
+# 用 try/catch 避免 git check-ignore 非零退出码触发终止错误
 $ignoredNecessary = @()
 foreach ($f in $requiredFiles) {
-    $ignored = git check-ignore $f 2>$null
-    if ($LASTEXITCODE -eq 0) {
-        $ignoredNecessary += $f
+    try {
+        $ignored = git check-ignore $f 2>&1
+        if ($LASTEXITCODE -eq 0) {
+            $ignoredNecessary += $f
+        }
+    } catch {
+        # git check-ignore 返回非零表示文件未被忽略，属正常
     }
 }
 if ($ignoredNecessary.Count -eq 0) {
