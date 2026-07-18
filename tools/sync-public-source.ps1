@@ -120,8 +120,13 @@ function Sync-Directory {
     $records = @()
     $syncedFiles = @()
 
+    # 排除 .gitkeep 和 __pycache__ 等非业务文件
+    $ExcludeFiles = @(".gitkeep")
+
     # 复制所有源文件
-    $sourceFiles = Get-ChildItem -Path $SourceDir -Recurse -File
+    $sourceFiles = Get-ChildItem -Path $SourceDir -Recurse -File | Where-Object {
+        $_.Name -notin $ExcludeFiles -and $_.DirectoryName -notlike "*__pycache__*" -and $_.DirectoryName -notlike "*.pytest_cache*"
+    }
     foreach ($srcFile in $sourceFiles) {
         $relativePath = $srcFile.FullName.Substring($SourceDir.Length).TrimStart('\')
         $targetFile = Join-Path $TargetDir $relativePath
