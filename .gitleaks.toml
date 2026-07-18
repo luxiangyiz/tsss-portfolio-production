@@ -1,0 +1,32 @@
+# ============================================================
+# Gitleaks 配置 — project-016-zwd-portfolio-production
+# ------------------------------------------------------------
+# 策略（对应方案 V2 阶段 F 10.3）：
+#   1. 通过 [extend] use = "default" 继承 Gitleaks 官方默认规则
+#   2. 只为已确认的示例占位符和已授权公开联系信息设置精确 allowlist
+#   3. 不忽略整个文件类型，不忽略 deploy/ configs/ *.yaml
+#   4. CI 必须扫描完整 Git 历史（fetch-depth: 0）
+# ============================================================
+
+title = "zwd-portfolio-production gitleaks config"
+
+# 继承官方默认规则（覆盖 OpenAI/GitHub/AWS/Google/Slack/JWT/私钥等）
+[extend]
+use = "default"
+
+# 全局 allowlist — 仅放行已确认的安全占位符和已授权公开联系信息
+[allowlist]
+description = "Authorized public contact info and known template placeholders"
+
+# 精确正则：只放行这些已知安全值，不忽略整个文件
+regexes = [
+    # 已授权公开联系信息（方案 10.2 layer 3 显式 allowlist）
+    '''Tsss9318''',                          # 微信号
+    '''15059779318''',                       # 手机号
+    '''15059779318@163\.com''',              # 邮箱
+
+    # 环境模板中的已知占位符（不含真实密钥）
+    '''change-me-root-password-32chars''',
+    '''change-me-wp-password-32chars''',
+    '''replace-with-secret-at-deploy-time''',
+]
