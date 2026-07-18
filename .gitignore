@@ -1,0 +1,58 @@
+# ============================================================
+# 生产仓库 .gitignore — project-016-zwd-portfolio-production
+# 仅作为第二道保护，不替代白名单同步机制
+# ============================================================
+
+# Environment
+.env
+.env.*
+!.env.example
+*.env.local
+*.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+venv/
+
+# RAG local runtime data
+data/rag/
+
+# WordPress 本地运行数据
+.wp-env-runtime/
+wp-content/uploads/
+
+# Logs
+logs/
+*.log
+
+# Backups
+backups/
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 绝对禁止出现在仓库中的路径
+ai-job-knowledge-base/
+private/
+internal/
+data/

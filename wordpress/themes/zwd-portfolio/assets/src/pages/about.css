@@ -1,0 +1,387 @@
+/* ===================================================
+   About Page — ZWD Portfolio
+   Prefix: about-page-
+   Design: editorial, warm-white, no shadows/gradients/round-cards
+   =================================================== */
+
+/* ---- Root Container ---- */
+.about-page {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ---- First Screen: 7:5 Hero ---- */
+.about-page-hero {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.about-page-hero__kicker {
+  margin: 0;
+  color: var(--zwd-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.about-page-hero__title {
+  margin: 0.35em 0 0;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.about-page-hero__lead {
+  max-width: 520px;
+  margin-top: 1.25rem;
+  color: var(--zwd-muted);
+  font-size: clamp(1rem, 1.8vw, 1.22rem);
+  line-height: 1.65;
+}
+
+.about-page-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--zwd-paper);
+  border: 1px solid var(--zwd-line);
+  overflow: hidden;
+}
+
+/* Abstract gray placeholder — no remote image */
+.about-page-photo::before,
+.about-page-photo::after {
+  content: "";
+  position: absolute;
+}
+.about-page-photo::before {
+  inset: 12%;
+  border-radius: 50% 8% 12% 60% / 45% 55% 40% 55%;
+  background: color-mix(in srgb, var(--zwd-line) 40%, transparent);
+}
+.about-page-photo::after {
+  right: 10%;
+  bottom: 14%;
+  width: 28%;
+  height: 38%;
+  background: linear-gradient(
+    145deg,
+    transparent 30%,
+    rgba(136, 134, 126, 0.18) 30%
+  );
+  clip-path: polygon(20% 100%, 80% 100%, 100% 55%, 0% 55%);
+}
+
+/* ---- Section Divider ---- */
+.about-page-section {
+  border-top: 1px solid var(--zwd-line);
+  padding-block: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.about-page-section:first-of-type {
+  border-top: none;
+}
+
+/* ---- Transition Story & Capability Migration (two-column) ---- */
+.about-page-transition {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-page-section-title {
+  margin: 0 0 1.15rem;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.about-page-story p {
+  max-width: 56ch;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.about-page-story p:last-child {
+  margin-bottom: 0;
+}
+
+.about-page-capability-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-page-capability-list li {
+  position: relative;
+  padding-left: 1.15em;
+  margin-bottom: 0.75rem;
+  line-height: 1.65;
+}
+
+.about-page-capability-list li::before {
+  position: absolute;
+  left: 0;
+  content: "•";
+  font-weight: 700;
+}
+
+/* ---- Education & Internship (horizontal timeline) ---- */
+.about-page-timeline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.about-page-timeline-item {
+  position: relative;
+  padding-left: clamp(1.5rem, 2.5vw, 2.2rem);
+  border-top: 1px solid var(--zwd-line);
+  padding-top: 1.5rem;
+}
+
+.about-page-timeline-item::before {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--zwd-ink);
+  content: "";
+}
+
+.about-page-timeline-date {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  color: var(--zwd-ink);
+}
+
+.about-page-timeline-org {
+  display: block;
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about-page-timeline-desc {
+  margin: 0;
+  color: var(--zwd-muted);
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  line-height: 1.65;
+}
+
+/* ---- Work Style (three equal columns) ---- */
+.about-page-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--zwd-line);
+  border-bottom: 1px solid var(--zwd-line);
+}
+
+.about-page-value-item {
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border-left: 1px solid var(--zwd-line);
+}
+
+.about-page-value-item:first-child {
+  border-left: none;
+}
+
+.about-page-value-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.about-page-value-header h3 {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+}
+
+/* Inline SVG icons — no remote icon libraries */
+.about-page-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  color: var(--zwd-ink);
+}
+
+.about-page-value-item p {
+  margin: 0;
+  color: var(--zwd-muted);
+  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  line-height: 1.6;
+}
+
+/* ---- Interests (horizontal compact) ---- */
+.about-page-interests {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.about-page-interests h2 {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+}
+
+.about-page-interest-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.88rem, 1.2vw, 1rem);
+  color: var(--zwd-muted);
+}
+
+.about-page-interest-item .about-page-icon-sm {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--zwd-muted);
+}
+
+/* ---- Page Footer CTA ---- */
+.about-page-cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-top: 1px solid var(--zwd-line);
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.about-page-cta a {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ===================================================
+   Responsive Breakpoints
+   =================================================== */
+
+/* --- 1024px: keep two-column, reduce sizes --- */
+@media (max-width: 1024px) {
+  .about-page-hero {
+    grid-template-columns: 6fr 4fr;
+    gap: 2rem;
+  }
+
+  .about-page-photo {
+    aspect-ratio: 16 / 11;
+  }
+
+  .about-page-transition {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .about-page-timeline {
+    gap: 2rem;
+  }
+}
+
+/* --- 768px: vertical hero, vertical timeline, stacked values --- */
+@media (max-width: 768px) {
+  .about-page-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-page-photo {
+    order: -1;
+    aspect-ratio: 16 / 9;
+    max-height: 280px;
+  }
+
+  .about-page-transition {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-page-timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-page-values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-page-value-item {
+    border-left: none;
+    border-top: 1px solid var(--zwd-line);
+    padding-top: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .about-page-value-item:first-child {
+    border-top: none;
+  }
+
+  .about-page-interests {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* --- 390px: single column, natural wrap, no horizontal scroll --- */
+@media (max-width: 420px) {
+  .about-page-hero {
+    padding-block: 2rem 1.5rem;
+  }
+
+  .about-page-hero__title {
+    font-size: clamp(1.85rem, 8vw, 2.6rem);
+  }
+
+  .about-page-photo {
+    max-height: 220px;
+  }
+
+  .about-page-section {
+    padding-block: 2rem 1.5rem;
+  }
+
+  .about-page-cta {
+    justify-content: flex-start;
+  }
+
+  .about-page-icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* --- 200% font zoom safety --- */
+@media (max-resolution: 120dpi) {
+  .about-page-hero__title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

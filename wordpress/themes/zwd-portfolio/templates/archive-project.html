@@ -1,0 +1,36 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","align":"full","className":"page-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull page-main">
+  <!-- wp:group {"align":"wide","className":"editorial-section site-shell project-archive-stage","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignwide editorial-section site-shell project-archive-stage">
+    <div class="project-carousel-wrapper">
+      <!-- wp:query {"queryId":15,"query":{"perPage":12,"pages":0,"offset":0,"postType":"project","order":"asc","orderBy":"menu_order","author":"","search":"","exclude":[],"sticky":"","inherit":true},"align":"wide"} -->
+      <div class="wp-block-query alignwide">
+        <!-- wp:post-template {"className":"project-card-grid carousel-mode","layout":{"type":"default"}} -->
+          <!-- wp:group {"className":"project-card","layout":{"type":"constrained"}} -->
+          <div class="wp-block-group project-card">
+            <!-- wp:post-title {"isLink":true,"className":"project-card__title","fontSize":"x-large"} /-->
+            <!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false,"className":"project-card__excerpt"} /-->
+            <!-- wp:paragraph {"className":"project-card__stack-label"} -->
+            <p class="project-card__stack-label">技术栈</p>
+            <!-- /wp:paragraph -->
+            <!-- wp:post-terms {"term":"project_skill","separator":" "} /-->
+            <!-- wp:paragraph {"className":"project-card__link"} -->
+            <p class="project-card__link">查看项目 →</p>
+            <!-- /wp:paragraph -->
+          </div>
+          <!-- /wp:group -->
+        <!-- /wp:post-template -->
+        <!-- wp:query-no-results -->
+          <!-- wp:paragraph -->
+          <p>项目内容正在整理中。</p>
+          <!-- /wp:paragraph -->
+        <!-- /wp:query-no-results -->
+      </div>
+      <!-- /wp:query -->
+    </div>
+  </div>
+  <!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

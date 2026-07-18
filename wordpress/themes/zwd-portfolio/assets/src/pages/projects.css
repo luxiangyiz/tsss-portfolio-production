@@ -1,0 +1,111 @@
+/**
+ * 项目归档页样式 — 3D 画廊容器与 fallback 样式
+ */
+
+/* ---- 画廊容器 ---- */
+.projects-gallery-section {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-gallery-section .circular-gallery-3d {
+  flex: 1;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  cursor: grab;
+  border: 1px solid var(--zwd-line);
+  background: #0a0a0a;
+  border-radius: 4px;
+}
+
+.projects-gallery-section .circular-gallery-3d.is-ready {
+  border-color: transparent;
+}
+
+.projects-gallery-section .circular-gallery-3d:active {
+  cursor: grabbing;
+}
+
+.projects-gallery-section .circular-gallery-3d:focus-visible {
+  outline: 2px solid var(--zwd-ink);
+  outline-offset: 4px;
+}
+
+/* ---- 加载状态 ---- */
+.projects-gallery-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, var(--zwd-paper) 0%, #eee 100%);
+  transition: opacity 0.4s ease;
+}
+
+.projects-gallery-section.has-gallery::before {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- 空状态 / 错误提示 ---- */
+.project-gallery-empty,
+.project-gallery-error {
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--zwd-muted);
+  font-size: 1.05rem;
+}
+
+.project-gallery-error {
+  color: #b00;
+}
+
+/* ---- noscript fallback 卡片网格 ---- */
+noscript .project-card-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+noscript .project-card {
+  position: relative;
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  border: 1px solid var(--zwd-line);
+  background: transparent;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  counter-increment: project-card;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+noscript .project-card:hover,
+noscript .project-card:focus-within {
+  border-color: var(--zwd-ink);
+  transform: translateY(-3px);
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 720px) {
+  .projects-gallery-section {
+    min-height: auto;
+    padding-block: 2rem;
+  }
+
+  .projects-gallery-section .circular-gallery-3d {
+    height: 420px;
+  }
+
+  noscript .project-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-gallery-section .circular-gallery-3d {
+    cursor: default;
+  }
+}

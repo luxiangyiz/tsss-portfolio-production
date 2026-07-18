@@ -1,0 +1,57 @@
+# ============================================================
+# 生产 .dockerignore — 防止敏感数据进入镜像层
+# ============================================================
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and backups
+logs/
+backups/
+*.log
+
+# Node
+node_modules/
+
+# 拒绝目录 — 即使被误复制也不进入镜像
+ai-job-knowledge-base/
+private/
+internal/
+data/
+
+# 部署相关（不在镜像构建上下文中需要）
+deploy/
+tools/
+manifests/
+tests/
+
+# README and docs
+README.md
+CHANGELOG.md
+docs/

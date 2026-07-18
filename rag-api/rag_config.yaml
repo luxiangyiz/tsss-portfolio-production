@@ -1,0 +1,95 @@
+# ============================================================
+# YAML 配置文件 — 知识库纳入规则、隐私字段合法值
+# ============================================================
+
+knowledge_base:
+  root: "E:\\AI\\codex_workspace\\project-015-personal-knowledge-assistant\\ai-job-knowledge-base"
+
+  # 纳入检索的目录（相对 KB_ROOT）
+  include_dirs:
+    - "01-个人基础档案"
+    - "02-教育与工作经历"
+    - "03-项目与作品集"
+    - "04-技能与能力证据"
+    - "05-目标岗位与JD\\JD结构化分析"
+    - "05-目标岗位与JD\\岗位画像"
+    - "06-公司与行业情报"
+    - "07-面试题库"
+    - "08-求职材料"
+    - "09-求职进度"
+    - "10-面试与求职复盘"
+    - "11-AI学习与行业知识"
+    - "12-网站公开候选"
+
+  # 排除目录
+  exclude_dirs:
+    - "00-待整理收件箱"
+    - "05-目标岗位与JD\\JD原始文本"
+    - "90-模板"
+    - "91-证据与附件"
+    - "92-索引与统计"
+    - "93-导出与交付"
+    - "99-归档"
+
+  # 纳入文件类型
+  include_extensions:
+    - ".md"
+
+  # 排除文件 pattern
+  exclude_patterns:
+    - "README.md"
+    - ".gitkeep"
+
+# 隐私级别定义
+privacy:
+  levels:
+    - private
+    - internal
+    - public
+
+  # public-index 四项强制条件
+  public_index_requirements:
+    privacy_level: "public"
+    publish_status: "published"
+    review_status: "approved"
+    verification_status: "verified"
+
+# Collection 名称
+collections:
+  private: "kb_private"
+  internal: "kb_internal"
+  public: "kb_public"
+
+# 元数据合法值（用于验证）
+metadata:
+  verification_status:
+    - pending
+    - verified
+    - disputed
+  privacy_level:
+    - private
+    - internal
+    - public
+  publish_status:
+    - draft
+    - review
+    - published
+    - archived
+  review_status:
+    - pending
+    - conditional
+    - approved
+    - rejected
+  ai_generated:
+    - true
+    - false
+
+# RAG 参数
+rag:
+  chunk_size: 500
+  chunk_overlap: 75
+  top_k: 5
+  default_scope: "internal"
+  include_disputed: false
+  embedding_dimension: 1536
+  relevance_threshold: 0.3
