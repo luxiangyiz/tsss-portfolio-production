@@ -1,0 +1,80 @@
+# ============================================================
+# 生产公开 RAG 配置 — project-016-zwd-portfolio-production
+# ------------------------------------------------------------
+# 本文件为生产仓库独立维护的公开配置，不从 project-015 同步。
+# 仅描述公开知识目录和公开 Collection，禁止出现：
+#   - 开发电脑绝对路径（E:\ / C:\Users 等）
+#   - private / internal 知识目录
+#   - kb_private / kb_internal Collection
+#   - default_scope: internal
+# 运行时通过 RAG_CONFIG_PATH 环境变量指向本文件（部署阶段配置）。
+# ============================================================
+
+knowledge_base:
+  # 生产容器内公开内容挂载点
+  root: "/app/public-content"
+
+  # 仅纳入当前目录下的公开候选内容
+  include_dirs:
+    - "."
+
+  # 只索引 Markdown
+  include_extensions:
+    - ".md"
+
+  # 排除说明性文件
+  exclude_patterns:
+    - "README.md"
+    - ".gitkeep"
+
+# 隐私级别定义（保留完整合法值集合用于元数据校验）
+privacy:
+  levels:
+    - private
+    - internal
+    - public
+
+  # public-index 四项强制条件 — 任一不满足则不入公开检索
+  public_index_requirements:
+    privacy_level: "public"
+    publish_status: "published"
+    review_status: "approved"
+    verification_status: "verified"
+
+# Collection 名称 — 生产只定义公开 Collection
+collections:
+  public: "kb_public"
+
+# 元数据合法值（用于校验，保持与源项目一致）
+metadata:
+  verification_status:
+    - pending
+    - verified
+    - disputed
+  privacy_level:
+    - private
+    - internal
+    - public
+  publish_status:
+    - draft
+    - review
+    - published
+    - archived
+  review_status:
+    - pending
+    - conditional
+    - approved
+    - rejected
+  ai_generated:
+    - true
+    - false
+
+# RAG 参数 — 默认检索范围为 public
+rag:
+  chunk_size: 500
+  chunk_overlap: 75
+  top_k: 5
+  default_scope: "public"
+  include_disputed: false
+  embedding_dimension: 1536
+  relevance_threshold: 0.3

@@ -27,7 +27,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制应用代码（只包含公开入口需要的部分）
 COPY rag_app/ rag_app/
-COPY rag_config.yaml .
+
+# 复制公开生产配置到 config.py 默认加载路径
+# config.py 从 <package>/../../../../configs/rag_config.yaml 加载，
+# 容器内 rag_app 位于 /app/rag_app/，因此加载路径为 /app/configs/rag_config.yaml
+COPY configs/rag_config.public.yaml configs/rag_config.yaml
 
 # 创建非 root 用户可写目录
 RUN mkdir -p /app/data /app/logs && \
