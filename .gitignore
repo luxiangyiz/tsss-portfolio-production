@@ -1,16 +1,26 @@
 # ============================================================
 # 生产仓库 .gitignore — project-016-zwd-portfolio-production
 # 仅作为第二道保护，不替代白名单同步机制
+# 规则设计原则：
+#   1. 拒绝目录使用根锚定（/data/），避免误伤主题源码中的同名子目录
+#   2. 环境模板使用明确例外，确保 .env.example / .env.demo.example / production.env.example 被跟踪
+#   3. 真实 .env 永远无法被普通 git add . 添加
 # ============================================================
 
-# Environment
-.env
-.env.*
-!.env.example
-*.env.local
-*.env.production
+# ---------- Environment ----------
+# 真实环境文件一律忽略，只保留明确列举的示例模板
+/rag-api/.env
+/rag-api/.env.*
+!/rag-api/.env.example
+!/rag-api/.env.demo.example
 
-# Python
+/deploy/.env.production
+/deploy/.env.*
+!/deploy/production.env.example
+
+*.env.local
+
+# ---------- Python ----------
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -18,41 +28,46 @@ dist/
 .venv/
 venv/
 
-# RAG local runtime data
-data/rag/
+# ---------- RAG 本地运行数据 ----------
+# 根锚定：只忽略仓库根的 data/，不误伤主题 assets/src/data/
+/data/
+/data/rag/
 
-# WordPress 本地运行数据
+# ---------- WordPress 本地运行数据 ----------
 .wp-env-runtime/
 wp-content/uploads/
 
-# Logs
+# ---------- 日志与备份 ----------
 logs/
 *.log
-
-# Backups
 backups/
 
-# Node
+# ---------- Node ----------
 node_modules/
 
-# IDE
+# ---------- IDE ----------
 .vscode/
 .idea/
 
-# OS
+# ---------- OS ----------
 .DS_Store
 Thumbs.db
 
-# Docker
+# ---------- Docker ----------
 docker-compose.override.yml
 
-# Tests
+# ---------- 测试临时产物 ----------
 .pytest_cache/
 .coverage
 htmlcov/
 
-# 绝对禁止出现在仓库中的路径
+# ---------- 绝对禁止出现在仓库中的路径 ----------
+# 注意：ai-job-knowledge-base/ 在生产仓库中使用 public-content/ 替代，
+# 任何 ai-job-knowledge-base/ 出现都视为越界同步，必须忽略。
 ai-job-knowledge-base/
 private/
 internal/
-data/
+
+# ---------- 验收临时产物 ----------
+# reports/ 下只跟踪最终 repository-verification.json，其余临时证据不跟踪
+/reports/phase-*
