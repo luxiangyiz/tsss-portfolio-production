@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "project": "project-016-zwd-portfolio-production",
-  "total_files": 142,
+  "total_files": 144,
   "files": [
     {
       "path": ".dockerignore",
@@ -442,6 +442,14 @@
     {
       "path": "tools/verify-manifest.py",
       "sha256": "e61709d284a4c82438142bde3fce05f288ac7b41e19367cf4fc15c9986dd2c1d"
+    },
+    {
+      "path": "tools/verify-public-content.py",
+      "sha256": "584a85c10687694fc531ddf7629fded273df6538c71e9c3313909d380016bab2"
+    },
+    {
+      "path": "tools/verify-repository.ps1",
+      "sha256": "c6e0049b506fe5db587fbd1ccd621b945f284e8f232a8aead006ca1b072b6f5d"
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
