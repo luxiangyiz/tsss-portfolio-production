@@ -449,7 +449,7 @@
     },
     {
       "path": "tools/verify-repository.ps1",
-      "sha256": "b910a9713de9b3bad698f86160a4a3a0de76e0db2221c7151fe61e55ab49e2d0"
+      "sha256": "644bd672e4fc22384713442d5f2788ab0ed52e87df6dc9fa7f369ff928f62ddd"
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",

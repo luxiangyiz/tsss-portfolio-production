@@ -27,6 +27,9 @@ $ToolVerifyManifest = Join-Path $TargetRoot "tools\verify-manifest.py"
 
 # 切换到目标目录，确保 git 命令和相对路径都在 project-016 下执行
 Push-Location $TargetRoot
+# PS 5.1 默认按 ANSI 解码原生命令输出，中文路径会乱码，设为 UTF-8
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
 try {
 
 # ============================================================
@@ -146,13 +149,13 @@ foreach ($d in $denyRootDirs) {
         $denyFound += $d
     }
 }
-# 敏感文件名扫描
+# 敏感文件名扫描（条件必须用 -and 连接，否则会匹配所有文件）
 $sensitiveFiles = Get-ChildItem -Path $TargetRoot -Recurse -File -ErrorAction SilentlyContinue |
     Where-Object {
         $rel = $_.FullName.Substring($TargetRoot.Length).TrimStart('\') -replace '\\', '/'
-        -not ($rel -like '.git/*' -or $rel -like 'reports/*')
-        $_.Name -match '^(id_rsa|id_ed25519|credentials|secret)' -or
-        $_.Extension -in '.pem', '.key', '.pfx', '.sqlite', '.db', '.dump', '.bak'
+        (-not ($rel -like '.git/*' -or $rel -like 'reports/*' -or $rel -like '.pytest_cache/*')) -and
+        ($_.Name -match '^(id_rsa|id_ed25519|credentials|secret)' -or
+         $_.Extension -in '.pem', '.key', '.pfx', '.sqlite', '.db', '.dump', '.bak')
     }
 $sensitiveFound = $sensitiveFiles | ForEach-Object { $_.FullName.Substring($TargetRoot.Length).TrimStart('\') -replace '\\', '/' }
 
