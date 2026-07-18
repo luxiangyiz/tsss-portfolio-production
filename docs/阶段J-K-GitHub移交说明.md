@@ -149,7 +149,8 @@ rm -rf project-016-clone-verify
 ```bash
 # 测试 1：放入测试密钥应失败
 git checkout -b test/secret-negative
-echo "LLM_API_KEY=sk-abcdefghijklmnopqrstuvwxyz1234" >> rag-api/.env.example
+# 在 rag-api/.env.example 末尾追加一个 sk- 开头的 20+ 位字母数字测试密钥
+echo "LLM_API_KEY=<在此处放入一个 sk- 开头的测试密钥>" >> rag-api/.env.example
 git add -A && git commit -m "test: negative secret"
 git push origin test/secret-negative
 # 创建 PR，确认 secret-scan Job 失败
