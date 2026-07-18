@@ -1,0 +1,559 @@
+{
+  "version": "2.0",
+  "project": "project-016-zwd-portfolio-production",
+  "total_files": 138,
+  "files": [
+    {
+      "path": ".dockerignore",
+      "sha256": "6dca1e6b7192eb5de729a0836e134172c13e0f220fecc4b9cdce160e8be25d31"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "e135a5f3e391b50644be8e57bf9b05d6803176f421f4e24ce19913af7b3c04ba"
+    },
+    {
+      "path": ".github/workflows/verify.yml",
+      "sha256": "b78e89110519bc29e0583ab2036db07708e863aead6240f8b9019e7c455082bc"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "7ded9e472154914c14f89c36c6b59074663171aaa8232206d3456831a43b7c7a"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "e0763e53d7826fc0dda85acbff1ee199204c088e0abde8aeb96d2bc9dd24c40c"
+    },
+    {
+      "path": "README.md",
+      "sha256": "907b4a8ae6cc961570d405a80945a6233fef3781ad690bbfdaef21c2b225f306"
+    },
+    {
+      "path": "deploy/docker-compose.production.yml",
+      "sha256": "747912d90035c239fb2ccb834a59c1bfc47fac7b05fa83d95d352c3d711e523e"
+    },
+    {
+      "path": "deploy/nginx/site.conf",
+      "sha256": "46846cee387132d28bae7ddea9315804b2972b983d77b30bfddff7747a9eb978"
+    },
+    {
+      "path": "deploy/production.env.example",
+      "sha256": "23dc6f30f080ed0b8cbe5728072c3975ce939f1ea07cef9ca3cd2ad04a4fa036"
+    },
+    {
+      "path": "deploy/scripts/backup.sh",
+      "sha256": "a39c2d43d93a1a3e4d5a30c67a169d72bbdbe93c71d2f993c0bf6a5690f87b72"
+    },
+    {
+      "path": "deploy/scripts/deploy.sh",
+      "sha256": "5497ff9d07cc81d952eb596d14f18d25bb8e1c8202d8ff4015a6441df8c0e8e9"
+    },
+    {
+      "path": "deploy/scripts/restore.sh",
+      "sha256": "05c69fc15363b02bd646d4e1eff5061d6146359aa41c0fdca91f7024cac84ecc"
+    },
+    {
+      "path": "deploy/scripts/rollback.sh",
+      "sha256": "34ff3b4a080a3490f79a958937e77781a8b24bb423f24810af2a6ec2e92e50a7"
+    },
+    {
+      "path": "docs/GitHub仓库脱敏整改执行方案-V2.md",
+      "sha256": "6ae25c24c369d28548baaeb71995099f2d090cd7b9bc6699823134ac0b043966"
+    },
+    {
+      "path": "docs/执行报告-阶段0-4-6.md",
+      "sha256": "b98d4e9f8d7daa10c0c49721e6bb57a7240f8f4d988172f06f19ce320a1b2092"
+    },
+    {
+      "path": "manifests/source-sync-manifest.json",
+      "sha256": "a707ad3f5c2aadad2394d2941e57122f321e90c13ce6a4e888a24c67aada0b1f"
+    },
+    {
+      "path": "public-content/个人介绍/个人介绍.md",
+      "sha256": "e8af9aa996a534235d9ec5fce830cff9e345ed22b8113e4fac1cfc0ba6cc6b20"
+    },
+    {
+      "path": "public-content/个人介绍/公开简历.md",
+      "sha256": "fa4fb3ac885891d0976fd877bc28a3eb09dbc6e658c44e10e1b08cee2438dd27"
+    },
+    {
+      "path": "public-content/个人介绍/兴趣爱好与求职意向.md",
+      "sha256": "9c38ff08f62b584de22fa503122d291a7ca21ee75a37619dc8c56cac8c90f2e6"
+    },
+    {
+      "path": "public-content/个人介绍/常见问答.md",
+      "sha256": "dab43b2d94bb62444199b4a8491c8bbc135b124e59fd83820449ca2610410708"
+    },
+    {
+      "path": "public-content/个人介绍/技能清单.md",
+      "sha256": "054f17f9aae2897760d9de9592d05044616f44b36f2bb3416920dd4b8b907e50"
+    },
+    {
+      "path": "public-content/个人介绍/教育与实习经历.md",
+      "sha256": "1579c43c3690336c9fa6338c5aa01ccbac89b1905de9ffe36fdb15ac37978ae4"
+    },
+    {
+      "path": "public-content/个人介绍/联系方式.md",
+      "sha256": "7435672213f968619329dd04f2cc27ba189b891ce1b3ef86be0144992671c46b"
+    },
+    {
+      "path": "public-content/项目展示/AI求职知识库RAG.md",
+      "sha256": "8e61c8ec150f55de29f59640f45099214ec963e7f18ac64b6323d602783d80b9"
+    },
+    {
+      "path": "public-content/项目展示/世界杯百科智能问答BOT.md",
+      "sha256": "24bae372bff336bb97d592cee9dda319a21abd0589a5cdf34033947a9535a54f"
+    },
+    {
+      "path": "rag-api/.env.demo.example",
+      "sha256": "ac1f7fab4a148695e576a02567fda4906e23012f7e9b8fa6c001126e7d268fd4"
+    },
+    {
+      "path": "rag-api/.env.example",
+      "sha256": "53d6641990af3f876960965f9aee3bc7e47e8482aae9e045bf051d0900a7e774"
+    },
+    {
+      "path": "rag-api/Dockerfile",
+      "sha256": "526a3eb89890aa55761d283124c01c2c36e24e0cd78aadd679bede0142367d52"
+    },
+    {
+      "path": "rag-api/configs/rag_config.public.yaml",
+      "sha256": "5c70497c32a383926c46ba64ea7d37a0bdb20f57a4de4abf52c7d3ca3a479f1e"
+    },
+    {
+      "path": "rag-api/rag_app/__init__.py",
+      "sha256": "314b1be073cfe73608b3da90b2aebcc993cf799015ab75752ccda988665aba57"
+    },
+    {
+      "path": "rag-api/rag_app/api/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/api/ask.py",
+      "sha256": "214058f6e9c38985d9fe221141c3105655edfbcaefe8ba0b5ba99e00ad6d3211"
+    },
+    {
+      "path": "rag-api/rag_app/api/health.py",
+      "sha256": "b0d26b665ff19e8cb6fe39721463dbc426e8ba84db469c2e8343d5b92fd8bdd2"
+    },
+    {
+      "path": "rag-api/rag_app/api/ingest.py",
+      "sha256": "baa1162276abe856d69ddb19bdbcbd4417fc909d516746850e1f3386d36aed5f"
+    },
+    {
+      "path": "rag-api/rag_app/api/public.py",
+      "sha256": "99a1c6b05d04037b17af98a61790d4ac2ff3939910b82ea1e534f959996c1c38"
+    },
+    {
+      "path": "rag-api/rag_app/api/search.py",
+      "sha256": "6ebc6c18eb45ffaae1ef436a183898fe759211f5e0f565d5daac6da00fa5a329"
+    },
+    {
+      "path": "rag-api/rag_app/citations/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/citations/builder.py",
+      "sha256": "5f15ee1f2e1b2ffdb09aa9da874bd80e27463f25d26ff5bbf9610322c534953c"
+    },
+    {
+      "path": "rag-api/rag_app/citations/validator.py",
+      "sha256": "42bce8110d2deb30b69cf21e011c8609c4a5ad3cea050ce96c875d0c1f08071c"
+    },
+    {
+      "path": "rag-api/rag_app/core/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/core/config.py",
+      "sha256": "6c4a296971b747828c45c038d58918fae897c6c64f56c9a9c1a81f9ba1202cb6"
+    },
+    {
+      "path": "rag-api/rag_app/core/exceptions.py",
+      "sha256": "2c86bd17f9cbea0251a0f8079b7fe9ab042e0b9b2f04820900a2a308f50deae6"
+    },
+    {
+      "path": "rag-api/rag_app/core/logging.py",
+      "sha256": "260eec2c4f5280ba7981d2803648e9ad2ffb585b3a4f0e66d3c01f5b9b98b2a1"
+    },
+    {
+      "path": "rag-api/rag_app/core/security.py",
+      "sha256": "b9117d3799f3ea1cfedc261d610df8033afad3f9ef0ee2dacb8615f326443cd1"
+    },
+    {
+      "path": "rag-api/rag_app/demo/__init__.py",
+      "sha256": "56c8bd2706980fa8db157bfa378bc473761835291036e90682b56952142c7ff6"
+    },
+    {
+      "path": "rag-api/rag_app/demo/dependencies.py",
+      "sha256": "3acad2c16452c0d36449ed0d92990e3f752920b5e4d57a9cf2c10752b51cd930"
+    },
+    {
+      "path": "rag-api/rag_app/demo/page.py",
+      "sha256": "9f34a80026a87aef4a1da9af038a6e3063ab4610dfa3eda15ab8e3520da14ed8"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/chunk_id.py",
+      "sha256": "1f5018ee57972f2ad5276dbfd4f8627ac29c8ffedb323f92f9310cc945c27dc3"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/inclusion_policy.py",
+      "sha256": "0143ebd3a688d2b9599aa892f8089f7a65ebee3a2eb6a684ce09b77fd84849a7"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/manifest.py",
+      "sha256": "3766cc79c465bfb842c2a18f20470356c67daa266c832e870fafd0c054604867"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/markdown_parser.py",
+      "sha256": "ac2f49fc712aeccdf973b4ea7e674aab733099fd1c750650a74afb8cae01ae20"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/metadata_validator.py",
+      "sha256": "e3abce7f9d4ba2ede759a2d08f18aee0288cc744589d838c5352cbef306ee10e"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/privacy_router.py",
+      "sha256": "2337e6b6b6c2a29d471878fa1ea1a2090dbbaf804e931ad410a338d685a20b7e"
+    },
+    {
+      "path": "rag-api/rag_app/knowledge/scanner.py",
+      "sha256": "72af91bc4e4b9c498201c4b7cb7e91887e30cf74bd438de2d45ed9c29767994a"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/chat_model.py",
+      "sha256": "02021a38a57d7f0a03f7b251824e14c423b71f38665b906cbf43fac79a6a642e"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/document_factory.py",
+      "sha256": "00990bccd6ed20a13b5db5998b0fb2c225a0a2185a9eb5ccca806b3d56932db3"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/embeddings.py",
+      "sha256": "313da274a4c502e164a460b58af30e9a67e8ce23593a10b557d7d1268eabc51a"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/prompts.py",
+      "sha256": "d0871e56bdd1e4852993f083e7c99de9d56ffdc464b35248d65f276292b29135"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/retriever.py",
+      "sha256": "21400db9c242edf53f1540c5d7dde54321e25c5890b4f37e568e9eceda014ec0"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/splitter.py",
+      "sha256": "bd8d54ea8f107a37318fc0e59606b61df113244a516cb96b129c37da16b037b6"
+    },
+    {
+      "path": "rag-api/rag_app/langchain_components/vector_store.py",
+      "sha256": "57a21a0cf5c66f82d099c7755d4d385898dcb2c3979f7dbc47b0753f39eb9a7c"
+    },
+    {
+      "path": "rag-api/rag_app/main.py",
+      "sha256": "54798f203ab75fa8cbaa05b53d691bd5d0758b5fe4c23d0fdec1e809ac9087b8"
+    },
+    {
+      "path": "rag-api/rag_app/models/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/models/documents.py",
+      "sha256": "6ec77efd71f05e05863525f066249e7add115a226300bd728b333829351e296c"
+    },
+    {
+      "path": "rag-api/rag_app/models/requests.py",
+      "sha256": "2e957131aa80f7a3bc48f429e2bd31e9faa1c50355298da290766fc39a816aec"
+    },
+    {
+      "path": "rag-api/rag_app/models/responses.py",
+      "sha256": "bd24385781f12379df25f63d05b483f983fd0200c91d6f17ef48eed95d3e134c"
+    },
+    {
+      "path": "rag-api/rag_app/public_main.py",
+      "sha256": "2cb496856945e5eb4cd915308e04bd6aea4ad11bf8da4348f39ca78025334816"
+    },
+    {
+      "path": "rag-api/rag_app/services/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "rag-api/rag_app/services/answer_service.py",
+      "sha256": "243e230a5233e01106c8238a87ab13499a5b946b5e25ac33b8ff7b0aa739aef0"
+    },
+    {
+      "path": "rag-api/rag_app/services/evidence_policy.py",
+      "sha256": "dc590a480a54ffadb4ef64f38fb34ddf08ad79ab61d57dbef57f01caf00bb66a"
+    },
+    {
+      "path": "rag-api/rag_app/services/ingestion_service.py",
+      "sha256": "65bb9e0659cf619739ff82cb8a0edfa92dea4e6fa28853b00cdbc125cf16afbd"
+    },
+    {
+      "path": "rag-api/rag_app/services/search_service.py",
+      "sha256": "8093e4279438be85e3ce2e058143c9719918f247130398892d28f5e43eedc819"
+    },
+    {
+      "path": "rag-api/requirements.txt",
+      "sha256": "372dbc64af9cbdc41b81da5576915f064c8686e8ce3812c7409642551c3b1d24"
+    },
+    {
+      "path": "tests/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "dab8a8fa652f3c2b020351b1c0237068e0209b88210eb093e98af656ed24fad0"
+    },
+    {
+      "path": "tests/demo/__init__.py",
+      "sha256": "80836f617cbbcfa240d45721272ec90e63548fd427e69d2ea679f8505689b9b6"
+    },
+    {
+      "path": "tests/demo/conftest.py",
+      "sha256": "d18c6214b81c9c57203a05d8a4a75cb7ac14607f506fe76258fac40395c7c826"
+    },
+    {
+      "path": "tests/demo/test_demo_config.py",
+      "sha256": "5cd2c52ef8e974810ff2482e8973424d1fa4b32c1fdfb8a88ff3e4cb0017f124"
+    },
+    {
+      "path": "tests/demo/test_demo_dependencies.py",
+      "sha256": "36975f5af4b5252fc143f8c29e43e84817b750dc4d028d70efcb5177bbf4f9e1"
+    },
+    {
+      "path": "tests/demo/test_demo_page.py",
+      "sha256": "deb9b62a199876e0c34d299488d6b18b8e69c8388346338294321bedd39b30e6"
+    },
+    {
+      "path": "tests/demo/test_demo_scripts.py",
+      "sha256": "bb20f4992dc55dfea55c2efe5836cb037aa9ca3a99c91127df1c394fb12c345c"
+    },
+    {
+      "path": "tests/evaluation/__init__.py",
+      "sha256": "89aebf60d12be613127b3e5bb96d8678bf82a46e7c91a577ed4dffa70bb766d3"
+    },
+    {
+      "path": "tests/evaluation/eval_questions.py",
+      "sha256": "52586fff26585d36a9aff022dd18612f3f946c7f1f347486890cb33c23d2f6fe"
+    },
+    {
+      "path": "tests/evaluation/run_eval.py",
+      "sha256": "83c2ff1ea36c4fdf19cb0e86502df0e3dd58b80f70e0fad7e808c5500a64d744"
+    },
+    {
+      "path": "tests/fixtures/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "tests/fixtures/fake_chat_model.py",
+      "sha256": "8378264e11196e28483ceacdf79b87fd6666d9b95daa240f1a9ce639d004b58b"
+    },
+    {
+      "path": "tests/fixtures/fake_embeddings.py",
+      "sha256": "700a0fa026ca9957d73d24ae5ca9792745c4fb585f50a3d86ee82ccd4eaf65fe"
+    },
+    {
+      "path": "tests/integration/__init__.py",
+      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+    },
+    {
+      "path": "tests/integration/test_api.py",
+      "sha256": "95ee7320bca320f4ff8089c34ae99341c1e24e03702fe97846230b214d123066"
+    },
+    {
+      "path": "tests/integration/test_incremental.py",
+      "sha256": "e19ec0d72653adf3fb7848888af0f8075b034378a4ff02877995979882ec1d80"
+    },
+    {
+      "path": "tests/integration/test_manifest_v2_incremental.py",
+      "sha256": "f670dcc4e500513cb406ede99020d35c1f292ab33793e416533ee7dd58dc9cf7"
+    },
+    {
+      "path": "tests/integration/test_qdrant_real.py",
+      "sha256": "8618016c553e69c6640af7806fbe0798e2596acc9a8927d644bcbeddb7c03637"
+    },
+    {
+      "path": "tests/integration/test_scoped_ingest.py",
+      "sha256": "487f24626f254aea1b4e342e762d5b449385bd9e77ec27f66fc0045fb0d05597"
+    },
+    {
+      "path": "tests/privacy/test_privacy_isolation.py",
+      "sha256": "5688d02c0cf73c9ce0032fae8bb0b60a7e916c6909f945095355ccc5d27261b5"
+    },
+    {
+      "path": "tests/unit/test_knowledge.py",
+      "sha256": "fe3916414f79bbcb9e8064375c1c900dc13b4562083a71c96dcdda02135461c7"
+    },
+    {
+      "path": "tests/unit/test_manifest_v1_migration.py",
+      "sha256": "ff6929d349631ad5a3c773d210430c35e1a15e79273fe62ed83620507031c1ea"
+    },
+    {
+      "path": "tests/unit/test_manifest_v2.py",
+      "sha256": "0fcb26be7e4c8db5299a1fba45542375f71a3c60f578c6ddfdfbb2688025a65d"
+    },
+    {
+      "path": "tests/unit/test_public_answer_cleaning.py",
+      "sha256": "f9c0803f6ff749d786cdd798a308401e732844a836dbfe909d3b3b5c585bec4e"
+    },
+    {
+      "path": "tests/verify_fixes.py",
+      "sha256": "b773b26be8b8b9cdfbcf8b44d39e3c4b267824fa1b1f84f6fd834bb0202c1218"
+    },
+    {
+      "path": "tests/verify_imports.py",
+      "sha256": "00273a55bf8e3eafdb5f3146e0c3fde4638031f30922f1604b8c54a95d8949ae"
+    },
+    {
+      "path": "tests/wordpress/test_wordpress_files.py",
+      "sha256": "b152c5a57f0dade3dcfdbb7093226570bd396efc61bd8c363d1d7e29d071100a"
+    },
+    {
+      "path": "tools/gen-repository-manifest.py",
+      "sha256": "16399705f5ae45f83be8e40823e22697819e8fd3427f722bb9e527d8e9ca3f78"
+    },
+    {
+      "path": "tools/sync-public-source.ps1",
+      "sha256": "36a42a3a8dd3b5dd1980cd7f35db0247d9ba85dd22856559c5ed4996f06dcfd7"
+    },
+    {
+      "path": "tools/verify-manifest.py",
+      "sha256": "e61709d284a4c82438142bde3fce05f288ac7b41e19367cf4fc15c9986dd2c1d"
+    },
+    {
+      "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
+      "sha256": "971550e4791af18810c144a934f4537a0f2192ff64511ec399cd52354b655c79"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/README.md",
+      "sha256": "2e2be84e00070dd9fc61f382ccd2855044608a8e0b6645c74bbba4935ce3731f"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/build/about.css",
+      "sha256": "66cfa5a3d14b6d97e028297851864ca28abedce6a122dd6171bf47ca2a551be6"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/build/homepage.css",
+      "sha256": "6b14003a6ae1b82f9d4b2895b3f6e31089cddcc5d3987f60ee1f1656bcae057e"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/build/homepage.js",
+      "sha256": "5d72414214ab922fa2c633275cb8774f54b7f519185fe61f3c8fbfec9896c34d"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/build/project-carousel.js",
+      "sha256": "1ab9fd7b8e054510b3f0a738375d17b08580ae400312937ac34bb2944294c049"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery.js",
+      "sha256": "d0552fa0f429b4a7deeff35c82c84db2c725507afa7df906bad2aa5608a335fe"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery3D.js",
+      "sha256": "cf53aae6e2b9b3ae3b250321c5264a411333d44e77e370e3c8bf1e84f17c9463"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/Prism.js",
+      "sha256": "4583199bd4cfa301b0a8973267e96a18c87d1f28afcbd7305d3c330cfb938125"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/RagAssistant.js",
+      "sha256": "d7d8e0296639c1d4c89a6ffccd7092423814041a7bef70458be610ca1b0fceb9"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/ShinyText.js",
+      "sha256": "cd522a1d0387e21200cf54ca0d7553034332d1aeabc2f259e5da91c44db55d79"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/data/navigation-items.js",
+      "sha256": "3a043c5a526da16347e4407d78122debde0740e429f612a47d7e9742a65ae431"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/homepage.css",
+      "sha256": "ffd1841552db56d3623967b3aadc567557012687e5424345f60ccff41a8b443c"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/homepage.js",
+      "sha256": "bf2be74020a16c652f65c361487fb4f16a4472332a510098cf80b4f5cd14c11d"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/pages/about.css",
+      "sha256": "34194b5108912abe9b423f068a32ddc5e00090264601a51dd28313f920fcfc14"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/pages/projects.css",
+      "sha256": "1f03c29a55020f2a662af39874cbb05036d59f4fb5a078f5103e4b4f51084391"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/project-carousel.js",
+      "sha256": "b5005192aefe9ca397ade498d3bfb0ea5318538eec166a52b0bea46ad2925385"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/assets/src/projects-page.js",
+      "sha256": "7465d97e2d9e653ac775459a8d9e209ce8ddb21d96879e6b359320099cd79a52"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/functions.php",
+      "sha256": "2bb8e1f3b4676e66318e644eb012d19c7859cfe3f6bf27880760bf55b054bc82"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/index.php",
+      "sha256": "4708da40ff7fd0249aad990de1dcd522cb62ea5530c9517e7bcfca256fff7fe2"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/parts/footer.html",
+      "sha256": "50e7b698ca9473765f3c7c9072261227f41c0883e90e266dee9f1b54c1e340f5"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/parts/header.html",
+      "sha256": "62a54e9d69dfd53fbd7a82154b4d84c98c7d78f1b38318c0ff0c5e830e6eb19c"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/style.css",
+      "sha256": "9a5d6d6208cea80d20d36bbf89e404c6b79beac351c18e100d28c5a4fd73004b"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/404.html",
+      "sha256": "7a5c3eaf5d04994627973cde837d859200df243274c5a77d5f6255a3d3a8b88f"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/archive-project.html",
+      "sha256": "c88ae55f0ed251c565c6dc1a9d70f4cab010cffc0bfffa742c33022bf233cb21"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/front-page.html",
+      "sha256": "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/index.html",
+      "sha256": "cd3bf5cf2423d8c323c1cbdc2f468f94b65e7c11ecbfcb4d139e2007c8ef65ff"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/page.html",
+      "sha256": "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/single-project.html",
+      "sha256": "c04ad7f9aef2b3d435c2e2c59cffb78435bc6174122190371ec01bfa7155db16"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/templates/single.html",
+      "sha256": "27ccfd99552987a317fe7d28ac58ca38bf0419cf3abf7dbd321a2d0b5602f466"
+    },
+    {
+      "path": "wordpress/themes/zwd-portfolio/theme.json",
+      "sha256": "cf7add481ef524d69a7490acd5e9d9523a4e5c9b54d9b7bdb91e32f0baf1048c"
+    }
+  ]
+}
