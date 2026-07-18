@@ -20,6 +20,14 @@ param(
 
 $ErrorActionPreference = "Stop"
 $PythonExe = "python"
+# 工具绝对路径（避免 CWD 不在 project-016 时相对路径解析错误）
+$ToolScanSecrets = Join-Path $TargetRoot "tools\scan-secrets.py"
+$ToolVerifyPublic = Join-Path $TargetRoot "tools\verify-public-content.py"
+$ToolVerifyManifest = Join-Path $TargetRoot "tools\verify-manifest.py"
+
+# 切换到目标目录，确保 git 命令和相对路径都在 project-016 下执行
+Push-Location $TargetRoot
+try {
 
 # ============================================================
 # 结果收集
@@ -157,8 +165,11 @@ if ($denyFound.Count -eq 0 -and $sensitiveFound.Count -eq 0) {
 # ============================================================
 # 检查 6: 工作区密钥扫描
 # ============================================================
-$scanOutput = & $PythonExe tools/scan-secrets.py --json 2>&1 | Out-String
+$prevEAP = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
+$scanOutput = & $PythonExe $ToolScanSecrets --json 2>&1 | Out-String
 $scanExit = $LASTEXITCODE
+$ErrorActionPreference = $prevEAP
 if ($scanExit -eq 0) {
     Add-Check "VR-06" "工作区密钥扫描" "pass" "未发现有效密钥"
 } else {
@@ -168,8 +179,11 @@ if ($scanExit -eq 0) {
 # ============================================================
 # 检查 7: Git 历史密钥扫描
 # ============================================================
-$histOutput = & $PythonExe tools/scan-secrets.py --history --json 2>&1 | Out-String
+$prevEAP = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
+$histOutput = & $PythonExe $ToolScanSecrets --history --json 2>&1 | Out-String
 $histExit = $LASTEXITCODE
+$ErrorActionPreference = $prevEAP
 if ($histExit -eq 0) {
     Add-Check "VR-07" "Git 历史密钥扫描" "pass" "全历史无有效密钥"
 } else {
@@ -179,8 +193,11 @@ if ($histExit -eq 0) {
 # ============================================================
 # 检查 8: 公开 Markdown 四字段校验
 # ============================================================
-$pubOutput = & $PythonExe tools/verify-public-content.py 2>&1 | Out-String
+$prevEAP = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
+$pubOutput = & $PythonExe $ToolVerifyPublic 2>&1 | Out-String
 $pubExit = $LASTEXITCODE
+$ErrorActionPreference = $prevEAP
 if ($pubExit -eq 0) {
     Add-Check "VR-08" "公开内容四字段" "pass" "所有公开 Markdown 四字段通过"
 } else {
@@ -190,8 +207,11 @@ if ($pubExit -eq 0) {
 # ============================================================
 # 检查 9: Manifest 验证
 # ============================================================
-$manOutput = & $PythonExe tools/verify-manifest.py 2>&1 | Out-String
+$prevEAP = $ErrorActionPreference
+$ErrorActionPreference = "Continue"
+$manOutput = & $PythonExe $ToolVerifyManifest 2>&1 | Out-String
 $manExit = $LASTEXITCODE
+$ErrorActionPreference = $prevEAP
 if ($manExit -eq 0) {
     Add-Check "VR-09" "Manifest 验证" "pass" "source-sync + repository manifest 全部通过"
 } else {
@@ -286,4 +306,9 @@ Write-Host "总计: $($results.summary.total) 项, 通过 $($results.summary.pas
 Write-Host "报告: $reportPath" -ForegroundColor Gray
 Write-Host "退出码: $($results.exit_code)" -ForegroundColor $(if ($results.exit_code -eq 0) { 'Green' } else { 'Red' })
 
-exit $results.exit_code
+$finalExit = $results.exit_code
+} finally {
+    Pop-Location
+}
+
+exit $finalExit
