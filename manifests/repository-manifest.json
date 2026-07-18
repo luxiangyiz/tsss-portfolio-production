@@ -17,7 +17,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "7ded9e472154914c14f89c36c6b59074663171aaa8232206d3456831a43b7c7a"
+      "sha256": "cf29acb6722e5dc49d67f4e6bd04289577fbb3c99e3300a071142f1219504adf"
     },
     {
       "path": ".gitleaks.toml",
