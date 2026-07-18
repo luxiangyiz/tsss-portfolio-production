@@ -69,6 +69,5 @@ private/
 internal/
 
 # ---------- 验收临时产物 ----------
-# reports/ 下只跟踪最终 repository-verification.json，其余临时证据不跟踪
-/reports/*
-!/reports/repository-verification.json
+# reports/ 下的验证报告含时间戳，每次运行会变化，不进 Git（按需生成）
+/reports/
