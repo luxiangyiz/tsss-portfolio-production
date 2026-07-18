@@ -70,4 +70,5 @@ internal/
 
 # ---------- 验收临时产物 ----------
 # reports/ 下只跟踪最终 repository-verification.json，其余临时证据不跟踪
-/reports/phase-*
+/reports/*
+!/reports/repository-verification.json
