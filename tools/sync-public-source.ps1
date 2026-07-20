@@ -32,11 +32,11 @@ $ExitCode = 0
 # 注意：已移除 configs/（生产配置由 project-016 独立维护）
 # ============================================================
 $PathMappings = [ordered]@{
-    "src\wordpress\themes\zwd-portfolio"            = "wordpress\themes\zwd-portfolio"
-    "src\wordpress\plugins\zwd-portfolio-core"      = "wordpress\plugins\zwd-portfolio-core"
-    "src\rag_app"                                   = "rag-api\rag_app"
-    "requirements.txt"                              = "rag-api\requirements.txt"
-    "ai-job-knowledge-base\12-网站公开候选"          = "public-content"
+    "src/wordpress/themes/zwd-portfolio"            = "wordpress/themes/zwd-portfolio"
+    "src/wordpress/plugins/zwd-portfolio-core"      = "wordpress/plugins/zwd-portfolio-core"
+    "src/rag_app"                                   = "rag-api/rag_app"
+    "requirements.txt"                              = "rag-api/requirements.txt"
+    "ai-job-knowledge-base/12-网站公开候选"          = "public-content"
     "tests"                                         = "tests"
 }
 
@@ -261,9 +261,9 @@ function Invoke-SecurityScan {
     # 扫描所有文本文件（不排除类型）
     $textFiles = Get-ChildItem -Path $ScanRoot -Recurse -File -ErrorAction SilentlyContinue |
         Where-Object {
-            $rel = $_.FullName.Substring($ScanRoot.Length)
+            $rel = ($_.FullName.Substring($ScanRoot.Length) -replace '\\', '/').TrimStart('/')
             # 跳过 .git
-            -not ($rel -like '*\.git\*' -or $rel -like '.git\*')
+            -not ($rel -like '*/.git/*' -or $rel -like '.git/*')
         }
 
     foreach ($kp in $keyPatterns) {
@@ -289,7 +289,7 @@ function Invoke-SecurityScan {
 
     # 第三层：拒绝目录/文件名扫描（在目标中）
     foreach ($f in $textFiles) {
-        $rel = $f.FullName.Substring($ScanRoot.Length).TrimStart('\') -replace '\\', '/'
+        $rel = ($f.FullName.Substring($ScanRoot.Length) -replace '\\', '/').TrimStart('/')
         if (Test-PathDenied -RelativePath $rel) {
             Write-Host "  [FAIL] 拒绝路径: $rel" -ForegroundColor Red
             $found = $true
@@ -360,7 +360,7 @@ foreach ($mapping in $PathMappings.GetEnumerator()) {
 
         $sourceFiles = Get-ChildItem -Path $sourcePath -Recurse -File -ErrorAction SilentlyContinue
         foreach ($srcFile in $sourceFiles) {
-            $relativeInSource = $srcFile.FullName.Substring($sourcePath.Length).TrimStart('\')
+            $relativeInSource = $srcFile.FullName.Substring($sourcePath.Length).TrimStart([char[]]'/\')
             $normalizedRel = ($relativeInSource -replace '\\', '/').TrimStart('/')
 
             # 路径段级拒绝检查
@@ -387,7 +387,7 @@ foreach ($mapping in $PathMappings.GetEnumerator()) {
             }
 
             # 计算仓库相对路径（正斜杠）
-            $repoRel = ($targetFile.Substring($TargetRoot.Length).TrimStart('\') -replace '\\', '/')
+            $repoRel = ($targetFile.Substring($TargetRoot.Length).TrimStart([char[]]'/\') -replace '\\', '/')
             $newTargetPaths[$repoRel] = $true
 
             $allRecords += @{
@@ -419,7 +419,7 @@ foreach ($mapping in $PathMappings.GetEnumerator()) {
             Write-Host "    +  $targetRel" -ForegroundColor Green
         }
 
-        $repoRel = ($targetPath.Substring($TargetRoot.Length).TrimStart('\') -replace '\\', '/')
+        $repoRel = ($targetPath.Substring($TargetRoot.Length).TrimStart([char[]]'/\') -replace '\\', '/')
         $newTargetPaths[$repoRel] = $true
 
         $allRecords += @{
@@ -468,7 +468,7 @@ Write-Host "--- 残留同步文件清理 ---" -ForegroundColor Cyan
 $removedCount = 0
 foreach ($prevPath in $previousTargetPaths.Keys) {
     if (-not $newTargetPaths.ContainsKey($prevPath)) {
-        $fullPath = Join-Path $TargetRoot ($prevPath -replace '/', '\')
+        $fullPath = Join-Path $TargetRoot $prevPath
         if (Test-Path $fullPath) {
             Remove-Item -Path $fullPath -Force
             Write-Host "  -  $prevPath (源已撤回)" -ForegroundColor Yellow
@@ -481,7 +481,7 @@ if ($removedCount -eq 0) {
 }
 
 # 清理空目录（只清理同步目标子树，不动 deploy/docs/.github）
-$syncTargetRoots = @("wordpress", "rag-api\rag_app", "public-content", "tests")
+$syncTargetRoots = @("wordpress", "rag-api/rag_app", "public-content", "tests")
 foreach ($syncRoot in $syncTargetRoots) {
     $fullSyncRoot = Join-Path $TargetRoot $syncRoot
     if (Test-Path $fullSyncRoot) {
