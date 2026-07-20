@@ -390,7 +390,7 @@ foreach ($mapping in $PathMappings.GetEnumerator()) {
             $repoRel = ($targetFile.Substring($TargetRoot.Length).TrimStart([char[]]'/\') -replace '\\', '/')
             $newTargetPaths[$repoRel] = $true
 
-            $allRecords += @{
+            $allRecords += [ordered]@{
                 source_path = ($sourceRel -replace '\\', '/') + '/' + $normalizedRel
                 target_path = $repoRel
                 sha256      = $targetHash
@@ -422,7 +422,7 @@ foreach ($mapping in $PathMappings.GetEnumerator()) {
         $repoRel = ($targetPath.Substring($TargetRoot.Length).TrimStart([char[]]'/\') -replace '\\', '/')
         $newTargetPaths[$repoRel] = $true
 
-        $allRecords += @{
+        $allRecords += [ordered]@{
             source_path = ($sourceRel -replace '\\', '/')
             target_path = $repoRel
             sha256      = $targetHash

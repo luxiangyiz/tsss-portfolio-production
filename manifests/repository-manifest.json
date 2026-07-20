@@ -501,7 +501,7 @@
     },
     {
       "path": "tools/sync-public-source.ps1",
-      "sha256": "5d046d4e72c16b4da6ec19486a2c030f97ad471439bb65ecf05d39cec693fd43"
+      "sha256": "0c3785420f0b7af58ff016c974feb55eaeadad3aa74b36d74ad33483e5ea4d42"
     },
     {
       "path": "tools/verify-manifest.py",
