@@ -421,7 +421,7 @@
                   },
                   {
                       "source_path":  "src/wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
-                      "sha256":  "51ce0d72bb5472079e3f387c99214c3fdb1c50a6eb739dc8e4fc00c583e1960d",
+                      "sha256":  "ada58db048ac968cebb6190c473ca34634358a278bb49e6d7762ef2484d1cc7b",
                       "target_path":  "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php"
                   },
                   {
@@ -476,7 +476,7 @@
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/homepage.css",
-                      "sha256":  "ffd1841552db56d3623967b3aadc567557012687e5424345f60ccff41a8b443c",
+                      "sha256":  "d8b8364d8afd31aa105f41226abed2b0ef5ce10609daea903c97d084ba1537f2",
                       "target_path":  "wordpress/themes/zwd-portfolio/assets/src/homepage.css"
                   },
                   {
@@ -536,7 +536,7 @@
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/style.css",
-                      "sha256":  "9a5d6d6208cea80d20d36bbf89e404c6b79beac351c18e100d28c5a4fd73004b",
+                      "sha256":  "3f4854a10049318a07677c0f5f1d90b342953f23821c6696865b480b59a7fe4c",
                       "target_path":  "wordpress/themes/zwd-portfolio/style.css"
                   },
                   {
@@ -546,7 +546,7 @@
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/archive-project.html",
-                      "sha256":  "c88ae55f0ed251c565c6dc1a9d70f4cab010cffc0bfffa742c33022bf233cb21",
+                      "sha256":  "673b919a36662395c395a5d5a429c18374a8e6aa1b140b763f44f6ecf3d54297",
                       "target_path":  "wordpress/themes/zwd-portfolio/templates/archive-project.html"
                   },
                   {

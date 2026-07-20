@@ -644,6 +644,14 @@ function contact_content( int $form_id ): string {
       </div>
       <span class="contact-page-action" aria-hidden="true">写邮件 →</span>
     </a>
+    <a class="contact-page-item" href="https://github.com/luxiangyiz/tsss-portfolio-production" target="_blank" rel="noopener noreferrer">
+      <span class="contact-page-index">04</span>
+      <div>
+        <p>GitHub 项目</p>
+        <strong>github.com/luxiangyiz/tsss-portfolio-production</strong>
+      </div>
+      <span class="contact-page-action" aria-hidden="true">查看 →</span>
+    </a>
   </section>
 
   <p class="contact-page-note">联系时请简单说明您的姓名、所在组织与沟通事项，我会在看到消息后尽快回复。</p>

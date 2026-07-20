@@ -440,6 +440,43 @@ body.post-type-archive-project .project-card-grid.carousel-mode .project-card--c
   }
 }
 
+body.post-type-archive-project .project-archive-cta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 1.25rem clamp(2rem, 5vw, 4rem);
+}
+
+body.post-type-archive-project .project-archive-cta .wp-block-button__link {
+  min-width: 150px;
+  text-align: center;
+}
+
+/* Keep all four homepage destinations visible on mobile. */
+@media (max-width: 768px) {
+  .home .zwd-gallery-enhancement {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    overflow: visible;
+    padding: 1rem 0;
+    scroll-snap-type: none;
+  }
+
+  .home .zwd-gallery-card {
+    width: 100%;
+    min-width: 0;
+    height: clamp(210px, 28svh, 240px);
+    padding: 1rem;
+    transform: none;
+    scroll-snap-align: none;
+  }
+
+  .home .zwd-gallery-card strong {
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  }
+}
+
 .page-hero {
   padding-block: clamp(4rem, 9vw, 8rem);
 }

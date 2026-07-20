@@ -12,6 +12,9 @@ import yaml
 ROOT = Path(__file__).resolve().parents[2]
 RAG_API = ROOT / "rag-api"
 DEPLOY = ROOT / "deploy"
+WORDPRESS = ROOT / "wordpress"
+THEME = WORDPRESS / "themes" / "zwd-portfolio"
+PLUGIN = WORDPRESS / "plugins" / "zwd-portfolio-core" / "zwd-portfolio-core.php"
 
 if str(RAG_API) not in sys.path:
     sys.path.insert(0, str(RAG_API))
@@ -108,6 +111,30 @@ def test_production_scripts_have_required_safety_markers():
     assert "Type YES to continue" in scripts["restore.sh"]
     assert "--scope public" in scripts["index-public.sh"]
     assert "wp zwd verify" in scripts["init-wordpress.sh"]
+
+
+def test_mobile_homepage_exposes_all_navigation_cards_without_horizontal_scroll():
+    source_css = (THEME / "assets" / "src" / "homepage.css").read_text(
+        encoding="utf-8"
+    )
+    runtime_css = (THEME / "style.css").read_text(encoding="utf-8")
+
+    assert "grid-template-columns: repeat(2,minmax(0,1fr))" in source_css
+    assert "overflow-x: auto" not in source_css
+    assert ".home .zwd-gallery-enhancement" in runtime_css
+    assert "scroll-snap-type: none" in runtime_css
+
+
+def test_projects_archive_and_contact_page_expose_requested_links():
+    archive = (THEME / "templates" / "archive-project.html").read_text(
+        encoding="utf-8"
+    )
+    plugin = PLUGIN.read_text(encoding="utf-8")
+
+    assert 'href="/contact/"' in archive
+    assert "联系我" in archive
+    assert "https://github.com/luxiangyiz/tsss-portfolio-production" in plugin
+    assert 'rel="noopener noreferrer"' in plugin
 
 
 @pytest.mark.skipif(os.name == "nt", reason="Bash path semantics are validated in Linux CI")
