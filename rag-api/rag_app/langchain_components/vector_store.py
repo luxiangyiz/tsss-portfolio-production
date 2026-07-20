@@ -145,8 +145,8 @@ def delete_by_document_id(collection_name: str, document_id: str) -> int:
 
 def get_collection_info(collection_name: str) -> dict:
     """获取 collection 统计信息。"""
-    client = get_client()
     try:
+        client = get_client()
         info = client.get_collection(collection_name)
         return {
             "name": collection_name,

@@ -1,0 +1,96 @@
+upstream wordpress_backend {
+    server wordpress:9000;
+    keepalive 8;
+}
+
+upstream rag_api_backend {
+    server rag-api:8000;
+    keepalive 4;
+}
+
+limit_req_zone $binary_remote_addr zone=rag_limit:10m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=login_limit:10m rate=5r/m;
+limit_req_zone $binary_remote_addr zone=site_limit:10m rate=60r/m;
+
+server {
+    listen 80 default_server;
+    server_name ${DOMAIN} www.${DOMAIN} _;
+
+    root /var/www/html;
+    index index.php;
+    client_max_body_size 10m;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
+
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+
+    location = /healthz {
+        access_log off;
+        return 200 "ok\n";
+    }
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+        default_type text/plain;
+    }
+
+    location /api/rag/ {
+        limit_req zone=rag_limit burst=2 nodelay;
+        limit_req_status 429;
+        proxy_pass http://rag_api_backend/;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Connection "";
+        proxy_connect_timeout 5s;
+        proxy_send_timeout 10s;
+        proxy_read_timeout 45s;
+        proxy_hide_header Server;
+    }
+
+    location = /xmlrpc.php {
+        deny all;
+        access_log off;
+    }
+
+    location = /wp-login.php {
+        limit_req zone=login_limit burst=2 nodelay;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTP_PROXY "";
+        fastcgi_pass wordpress_backend;
+    }
+
+    location / {
+        limit_req zone=site_limit burst=20 nodelay;
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTP_PROXY "";
+        fastcgi_param HTTP_X_FORWARDED_PROTO $scheme;
+        fastcgi_read_timeout 30s;
+        fastcgi_pass wordpress_backend;
+    }
+
+    location ~* \.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|webp)$ {
+        try_files $uri =404;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    location ~ /\.(?!well-known/) {
+        deny all;
+        access_log off;
+    }
+}

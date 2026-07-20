@@ -202,7 +202,19 @@ jobs:
 
       - name: Run scanner tests
         run: |
-          python -m pytest tests/security/test_scan_secrets.py --noconftest -v
+          python -m pytest tests/security --noconftest -v
+
+      - name: Validate HTTP and HTTPS Compose profiles
+        run: |
+          docker compose \
+            -f deploy/docker-compose.production.yml \
+            --env-file deploy/production.env.example \
+            config --quiet
+          docker compose \
+            -f deploy/docker-compose.production.yml \
+            -f deploy/docker-compose.https.yml \
+            --env-file deploy/production.env.example \
+            config --quiet
 
       - name: Validate sync script policy declarations
         run: |

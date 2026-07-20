@@ -44,13 +44,13 @@ function enqueue_styles(): void {
 		);
 		$rag_endpoint = defined( 'ZWD_RAG_PUBLIC_URL' )
 			? (string) constant( 'ZWD_RAG_PUBLIC_URL' )
-			: home_url( '/public/ask' );
+			: home_url( '/api/rag/public/ask' );
 		wp_add_inline_script(
 			'zwd-portfolio-homepage',
 			'window.zwdHomepageConfig = ' . wp_json_encode(
 				array(
 					'askUrl'   => esc_url_raw( $rag_endpoint ),
-					'timeoutMs' => 30000,
+					'timeoutMs' => 45000,
 				)
 			) . ';',
 			'before'

@@ -85,7 +85,7 @@ def test_homepage_v2_is_server_rendered_and_privacy_scoped():
     navigation_js = (THEME / "assets" / "src" / "data" / "navigation-items.js").read_text(encoding="utf-8")
 
     assert "欢迎来到我的网站" in plugin_text
-    assert 'action="/public/ask"' in plugin_text
+    assert 'action="/api/rag/public/ask"' in plugin_text
     assert "JSON.stringify({ question: value })" in homepage_js
     assert "window.zwdHomepageConfig" in homepage_js
     assert "AbortController" in homepage_js

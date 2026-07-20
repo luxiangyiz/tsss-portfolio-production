@@ -83,6 +83,8 @@ class Scanner:
         for inc in self._include_dirs:
             norm_inc = inc.replace("\\", "/")
             norm_rel = rel_path.replace("\\", "/")
+            if norm_inc in ("", "."):
+                return True
             if norm_rel.startswith(norm_inc + "/") or norm_rel == norm_inc:
                 return True
         return False

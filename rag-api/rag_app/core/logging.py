@@ -2,6 +2,7 @@
 
 import logging
 import os
+from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from rag_app.core.config import settings
@@ -12,12 +13,18 @@ def setup_logging():
     log_dir = Path(settings.log_dir)
     log_dir.mkdir(parents=True, exist_ok=True)
 
+    file_handler = RotatingFileHandler(
+        log_dir / "rag_app.log",
+        maxBytes=5 * 1024 * 1024,
+        backupCount=2,
+        encoding="utf-8",
+    )
     logging.basicConfig(
         level=getattr(logging, settings.log_level.upper(), logging.INFO),
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler(log_dir / "rag_app.log", encoding="utf-8"),
+            file_handler,
         ],
     )
 

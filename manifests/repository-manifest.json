@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "project": "project-016-zwd-portfolio-production",
-  "total_files": 146,
+  "total_files": 159,
   "files": [
     {
       "path": ".dockerignore",
@@ -13,7 +13,7 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "sha256": "8aef51d27a034909efefdd1e9f806d5056dd08b5742f98026db5b3e1ed2a65d0"
+      "sha256": "9f37e854720802a63e0d206f06698cf8a672e2d4a7d0583d6ae1262cc84436c0"
     },
     {
       "path": ".gitignore",
@@ -25,39 +25,79 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "e0763e53d7826fc0dda85acbff1ee199204c088e0abde8aeb96d2bc9dd24c40c"
+      "sha256": "d76366a56f0e8297fbadc22e4846c6ac0d589f2a5ece3636f5652b1d469ad43b"
     },
     {
       "path": "README.md",
-      "sha256": "907b4a8ae6cc961570d405a80945a6233fef3781ad690bbfdaef21c2b225f306"
+      "sha256": "1de515855a0a9e041b33bf25e37d20d76a272b4a067375260931bad2a038e1ba"
+    },
+    {
+      "path": "deploy/docker-compose.https.yml",
+      "sha256": "043bfc7a1253824c8e91e28b242d925e484797724b13908777f67502fc3ea62a"
     },
     {
       "path": "deploy/docker-compose.production.yml",
-      "sha256": "747912d90035c239fb2ccb834a59c1bfc47fac7b05fa83d95d352c3d711e523e"
+      "sha256": "36b879bc175708defc9104c81f71dca9981e822a40dee50c633fa6c1241641b8"
     },
     {
-      "path": "deploy/nginx/site.conf",
-      "sha256": "46846cee387132d28bae7ddea9315804b2972b983d77b30bfddff7747a9eb978"
+      "path": "deploy/nginx/site-http.conf.template",
+      "sha256": "8109075ac563021d28557d8f7922f04f44c21544746ff2d08afa8681e9a965eb"
+    },
+    {
+      "path": "deploy/nginx/site-https.conf.template",
+      "sha256": "876206c2d31811be6ba0ea5ba9336310777cd6e6f5eeddeeaaff10732a9fb563"
+    },
+    {
+      "path": "deploy/php/zz-zwd-fpm.conf",
+      "sha256": "18dfc8fd40b8b7613070b0d9d98b6c1fff4398dce8acea5e4c2f97cfbda55f30"
+    },
+    {
+      "path": "deploy/php/zz-zwd-opcache.ini",
+      "sha256": "f83f3580e58ae26e4c87342e219f84514c388754161c71754c614f61986f6e34"
     },
     {
       "path": "deploy/production.env.example",
-      "sha256": "23dc6f30f080ed0b8cbe5728072c3975ce939f1ea07cef9ca3cd2ad04a4fa036"
+      "sha256": "55b506877def7e9939621cb9641f9a09dbf6a7dab74f1cb8a1d3bdd105f1d499"
     },
     {
       "path": "deploy/scripts/backup.sh",
-      "sha256": "a39c2d43d93a1a3e4d5a30c67a169d72bbdbe93c71d2f993c0bf6a5690f87b72"
+      "sha256": "a42c5e74f18d5cd3abbeb931ee13341c1c6b2c9edbffde6d8029b1c60e0825a0"
+    },
+    {
+      "path": "deploy/scripts/common.sh",
+      "sha256": "cf1532d4d8441b0b2c177cac539bf1fccf6818c3b67567c28f8385414193f0e5"
     },
     {
       "path": "deploy/scripts/deploy.sh",
-      "sha256": "5497ff9d07cc81d952eb596d14f18d25bb8e1c8202d8ff4015a6441df8c0e8e9"
+      "sha256": "f4b676ee47562aa5057be44a9e753bac7df32d0f975fe923b1e6c984cd5e8d13"
+    },
+    {
+      "path": "deploy/scripts/index-public.sh",
+      "sha256": "5526903b4c8087abd5df0c6a132cea5038e43bc9a4198a2f73e12685836a10fd"
+    },
+    {
+      "path": "deploy/scripts/init-wordpress.sh",
+      "sha256": "15d1a7ad87b9b88f039cef782c06abc67806b9e0cf109d351a73a7b297b5f0a6"
+    },
+    {
+      "path": "deploy/scripts/issue-certificate.sh",
+      "sha256": "0c6373a48470c96b4bbf3910b037cdd532c5c9a3c28c9cd1b0e379135fe6acd7"
+    },
+    {
+      "path": "deploy/scripts/renew-certificate.sh",
+      "sha256": "67d41ffbb1102a62cb7ed1d55c710193dd854692a185baec7d80ce704c9d310f"
     },
     {
       "path": "deploy/scripts/restore.sh",
-      "sha256": "05c69fc15363b02bd646d4e1eff5061d6146359aa41c0fdca91f7024cac84ecc"
+      "sha256": "5e5662174dc3abcc3dfe6e2a47a8619c1ab39fc47dbc678b8bd2b3333df29813"
     },
     {
       "path": "deploy/scripts/rollback.sh",
-      "sha256": "34ff3b4a080a3490f79a958937e77781a8b24bb423f24810af2a6ec2e92e50a7"
+      "sha256": "a84782dfd0e981fb490b48ebde95eb7e56c2345426cceacb90a7eef4342b0e97"
+    },
+    {
+      "path": "deploy/scripts/run-wordpress-cron.sh",
+      "sha256": "9974f9ae6c720adf523f96d345094b3da46ac27f35d169286bbf9f8e9680879d"
     },
     {
       "path": "docs/GitHub仓库脱敏整改执行方案-V2.md",
@@ -76,8 +116,12 @@
       "sha256": "c5b726159e25617faca239afc4c709b71dcf20866d1acb9562cbb85118f96aea"
     },
     {
+      "path": "docs/阿里云ECS-2核2G生产部署优化执行交接手册-V1.md",
+      "sha256": "55fdc06a1b1f2b00133b978456cc8d3f8f14ce87304ac85cd5365088842756b4"
+    },
+    {
       "path": "manifests/source-sync-manifest.json",
-      "sha256": "a707ad3f5c2aadad2394d2941e57122f321e90c13ce6a4e888a24c67aada0b1f"
+      "sha256": "c3b5ca5b2e80931369c0506ac51bb8880449e47f583fb29e9411a7f0ad115661"
     },
     {
       "path": "public-content/个人介绍/个人介绍.md",
@@ -125,7 +169,7 @@
     },
     {
       "path": "rag-api/Dockerfile",
-      "sha256": "526a3eb89890aa55761d283124c01c2c36e24e0cd78aadd679bede0142367d52"
+      "sha256": "ac05c8fb244ca062377eec7ee20dfe94d52c2cf9d3732a6feb7a408f4bca2468"
     },
     {
       "path": "rag-api/configs/rag_config.public.yaml",
@@ -153,7 +197,7 @@
     },
     {
       "path": "rag-api/rag_app/api/public.py",
-      "sha256": "99a1c6b05d04037b17af98a61790d4ac2ff3939910b82ea1e534f959996c1c38"
+      "sha256": "9ed2ee66c018e8949c710be5d030537b0d4ce17e025d6e677eff023131e127c8"
     },
     {
       "path": "rag-api/rag_app/api/search.py",
@@ -172,12 +216,16 @@
       "sha256": "42bce8110d2deb30b69cf21e011c8609c4a5ad3cea050ce96c875d0c1f08071c"
     },
     {
+      "path": "rag-api/rag_app/cli.py",
+      "sha256": "31a6a5bf64da04bcfa4feae1a48f0ea7fbd61afd7e16f58b5d9215e7f19a2130"
+    },
+    {
       "path": "rag-api/rag_app/core/__init__.py",
       "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
     },
     {
       "path": "rag-api/rag_app/core/config.py",
-      "sha256": "6c4a296971b747828c45c038d58918fae897c6c64f56c9a9c1a81f9ba1202cb6"
+      "sha256": "0c399810e34e97f26f764e1886ce3e30362d0375eb7fa7cacf3a2ac46fa28341"
     },
     {
       "path": "rag-api/rag_app/core/exceptions.py",
@@ -185,7 +233,7 @@
     },
     {
       "path": "rag-api/rag_app/core/logging.py",
-      "sha256": "260eec2c4f5280ba7981d2803648e9ad2ffb585b3a4f0e66d3c01f5b9b98b2a1"
+      "sha256": "c516c966ea4a5ebb5688d96a3f330fa626c86b849e50466dd9757bc03ea4ed84"
     },
     {
       "path": "rag-api/rag_app/core/security.py",
@@ -233,7 +281,7 @@
     },
     {
       "path": "rag-api/rag_app/knowledge/scanner.py",
-      "sha256": "72af91bc4e4b9c498201c4b7cb7e91887e30cf74bd438de2d45ed9c29767994a"
+      "sha256": "4bbd499d9139682a05742d8cda764c1758b4d1163dfa45acffcab1926ea8f1d9"
     },
     {
       "path": "rag-api/rag_app/langchain_components/__init__.py",
@@ -265,7 +313,7 @@
     },
     {
       "path": "rag-api/rag_app/langchain_components/vector_store.py",
-      "sha256": "57a21a0cf5c66f82d099c7755d4d385898dcb2c3979f7dbc47b0753f39eb9a7c"
+      "sha256": "918b5f5f206d910247033c14ab0da12306bdfac5d9c7bdd0c9f1fd6c48507693"
     },
     {
       "path": "rag-api/rag_app/main.py",
@@ -281,7 +329,7 @@
     },
     {
       "path": "rag-api/rag_app/models/requests.py",
-      "sha256": "2e957131aa80f7a3bc48f429e2bd31e9faa1c50355298da290766fc39a816aec"
+      "sha256": "d91d27c0b56a0efbca8f587d65f6d4d285425d8fd5f4aa38de9c5a58d4d3ddee"
     },
     {
       "path": "rag-api/rag_app/models/responses.py",
@@ -404,6 +452,10 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
+      "path": "tests/security/test_production_deploy.py",
+      "sha256": "667d36e60767e46c614a7cf919ba2216acc52a0d1acc39f8796db7f4bf881a58"
+    },
+    {
       "path": "tests/security/test_scan_secrets.py",
       "sha256": "b5c2b1496b67f541a3213948a9b4b033a4bc8c1268daf6b6337ddcb9113d0822"
     },
@@ -433,7 +485,7 @@
     },
     {
       "path": "tests/wordpress/test_wordpress_files.py",
-      "sha256": "b152c5a57f0dade3dcfdbb7093226570bd396efc61bd8c363d1d7e29d071100a"
+      "sha256": "b559a547d1ff610753d161c5244e3859f04c65f8cae735d8e6f3046f318583a4"
     },
     {
       "path": "tools/gen-repository-manifest.py",
@@ -461,7 +513,7 @@
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
-      "sha256": "971550e4791af18810c144a934f4537a0f2192ff64511ec399cd52354b655c79"
+      "sha256": "51ce0d72bb5472079e3f387c99214c3fdb1c50a6eb739dc8e4fc00c583e1960d"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/LICENSE",
@@ -537,7 +589,7 @@
     },
     {
       "path": "wordpress/themes/zwd-portfolio/functions.php",
-      "sha256": "2bb8e1f3b4676e66318e644eb012d19c7859cfe3f6bf27880760bf55b054bc82"
+      "sha256": "e86ff86192dea11116fafd5530b8f5b6510f12d04fc831bacbf7d7a77b34e5af"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/index.php",

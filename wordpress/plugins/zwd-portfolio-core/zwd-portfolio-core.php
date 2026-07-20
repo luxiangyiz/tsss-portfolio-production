@@ -288,7 +288,7 @@ function home_content(): string {
     <h2 id="zwd-assistant-title">我是钟伟达的个人助手<span>你可以与我交谈，也可自行探索</span></h2>
     <p class="zwd-assistant__lead">了解我的经历、项目与能力</p>
     <div data-zwd-rag>
-      <form class="zwd-rag-form" action="/public/ask" method="post">
+      <form class="zwd-rag-form" action="/api/rag/public/ask" method="post">
         <label class="screen-reader-text" for="zwd-rag-question-static">向个人助手提问</label>
         <input id="zwd-rag-question-static" name="question" placeholder="问我任何关于经历、项目或能力的问题…" maxlength="500">
         <button type="submit">发送</button>

@@ -5,6 +5,8 @@ from typing import Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from rag_app.core.config import settings
+
 
 class IndexScope(str, Enum):
     private = "private"
@@ -48,7 +50,7 @@ class PublicAskRequest(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    question: str = Field(..., min_length=1, max_length=500)
+    question: str = Field(..., min_length=1, max_length=settings.rag_max_input_length)
 
 
 class PublicSearchRequest(BaseModel):
@@ -56,4 +58,4 @@ class PublicSearchRequest(BaseModel):
 
     model_config = ConfigDict(extra="forbid")
 
-    query: str = Field(..., min_length=1, max_length=500)
+    query: str = Field(..., min_length=1, max_length=settings.rag_max_input_length)
