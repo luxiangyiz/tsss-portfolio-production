@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "project": "project-016-zwd-portfolio-production",
-  "total_files": 159,
+  "total_files": 160,
   "files": [
     {
       "path": ".dockerignore",
@@ -13,7 +13,7 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "sha256": "9f37e854720802a63e0d206f06698cf8a672e2d4a7d0583d6ae1262cc84436c0"
+      "sha256": "ef1e84f8fa905e2c4900f058a74fa114aa650ca40f91c92eedb9494ed2ef915b"
     },
     {
       "path": ".gitignore",
@@ -121,7 +121,7 @@
     },
     {
       "path": "manifests/source-sync-manifest.json",
-      "sha256": "c3b5ca5b2e80931369c0506ac51bb8880449e47f583fb29e9411a7f0ad115661"
+      "sha256": "a9c5d3e2e770d17afbfe6be26c195910ccf2cea9152dba92a8508e9f32c0c56f"
     },
     {
       "path": "public-content/个人介绍/个人介绍.md",
@@ -181,7 +181,7 @@
     },
     {
       "path": "rag-api/rag_app/api/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/api/ask.py",
@@ -205,7 +205,7 @@
     },
     {
       "path": "rag-api/rag_app/citations/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/citations/builder.py",
@@ -221,7 +221,7 @@
     },
     {
       "path": "rag-api/rag_app/core/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/core/config.py",
@@ -253,7 +253,7 @@
     },
     {
       "path": "rag-api/rag_app/knowledge/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/knowledge/chunk_id.py",
@@ -285,7 +285,7 @@
     },
     {
       "path": "rag-api/rag_app/langchain_components/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/langchain_components/chat_model.py",
@@ -321,7 +321,7 @@
     },
     {
       "path": "rag-api/rag_app/models/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/models/documents.py",
@@ -341,7 +341,7 @@
     },
     {
       "path": "rag-api/rag_app/services/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "rag-api/rag_app/services/answer_service.py",
@@ -365,7 +365,7 @@
     },
     {
       "path": "tests/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "tests/conftest.py",
@@ -409,7 +409,7 @@
     },
     {
       "path": "tests/fixtures/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "tests/fixtures/fake_chat_model.py",
@@ -421,7 +421,7 @@
     },
     {
       "path": "tests/integration/__init__.py",
-      "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
     },
     {
       "path": "tests/integration/test_api.py",
@@ -429,7 +429,7 @@
     },
     {
       "path": "tests/integration/test_incremental.py",
-      "sha256": "e19ec0d72653adf3fb7848888af0f8075b034378a4ff02877995979882ec1d80"
+      "sha256": "0a79d1e6627a9cf58dd4817a3133ba5014f6f5f3cb36c63db7b6c3e50aed381c"
     },
     {
       "path": "tests/integration/test_manifest_v2_incremental.py",
@@ -441,7 +441,7 @@
     },
     {
       "path": "tests/integration/test_scoped_ingest.py",
-      "sha256": "487f24626f254aea1b4e342e762d5b449385bd9e77ec27f66fc0045fb0d05597"
+      "sha256": "810fd663e053253809b30ca3619d856f0c2a3a1a187c4061c0d168d2c512775e"
     },
     {
       "path": "tests/privacy/test_privacy_isolation.py",
@@ -450,6 +450,10 @@
     {
       "path": "tests/security/__init__.py",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/security/test_manifest_cross_platform.py",
+      "sha256": "5cfef402b01803d1748cfbfbf3a0f026d192183f67af26ee94d539a6ca8dd6b8"
     },
     {
       "path": "tests/security/test_production_deploy.py",
@@ -489,7 +493,7 @@
     },
     {
       "path": "tools/gen-repository-manifest.py",
-      "sha256": "16399705f5ae45f83be8e40823e22697819e8fd3427f722bb9e527d8e9ca3f78"
+      "sha256": "0cec412f269111aa71d975a31f9e8514586c90ac549bd1488ae536067b6a6bfe"
     },
     {
       "path": "tools/scan-secrets.py",
@@ -497,11 +501,11 @@
     },
     {
       "path": "tools/sync-public-source.ps1",
-      "sha256": "36a42a3a8dd3b5dd1980cd7f35db0247d9ba85dd22856559c5ed4996f06dcfd7"
+      "sha256": "d234f4fc91d527b00d1c8b62b757a65cf5a43a7a63f93868a08f302d1c1a07a3"
     },
     {
       "path": "tools/verify-manifest.py",
-      "sha256": "e61709d284a4c82438142bde3fce05f288ac7b41e19367cf4fc15c9986dd2c1d"
+      "sha256": "2a86f9cbb4d47ca3bf2af6b494ed64041cc4681e724ccfc506368b2564eebdab"
     },
     {
       "path": "tools/verify-public-content.py",

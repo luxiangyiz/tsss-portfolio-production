@@ -32,12 +32,18 @@ SOURCE_SELF = "manifests/source-sync-manifest.json"
 REPO_SELF = "manifests/repository-manifest.json"
 
 
+def canonical_content(path: Path) -> bytes:
+    """Return Git-compatible bytes independent of worktree line endings."""
+    data = path.read_bytes()
+    try:
+        data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    return data.replace(b"\r\n", b"\n")
+
+
 def sha256_of(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    return hashlib.sha256(canonical_content(path)).hexdigest()
 
 
 def git_ls_files() -> set[str]:

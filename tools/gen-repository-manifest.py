@@ -32,12 +32,23 @@ def git_ls_files() -> list[str]:
     return [line.strip() for line in result.stdout.splitlines() if line.strip()]
 
 
+def canonical_content(path: Path) -> bytes:
+    """Return cross-platform bytes for hashing.
+
+    Git normalizes repository text to LF, while Windows worktrees can still
+    contain CRLF. UTF-8 text is therefore hashed after CRLF normalization;
+    binary files retain their exact bytes.
+    """
+    data = path.read_bytes()
+    try:
+        data.decode("utf-8")
+    except UnicodeDecodeError:
+        return data
+    return data.replace(b"\r\n", b"\n")
+
+
 def sha256_of(path: Path) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for chunk in iter(lambda: f.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    return hashlib.sha256(canonical_content(path)).hexdigest()
 
 
 def main() -> int:

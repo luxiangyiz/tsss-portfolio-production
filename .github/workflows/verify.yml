@@ -200,6 +200,11 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
+      - name: Install production test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r rag-api/requirements.txt pytest httpx
+
       - name: Run scanner tests
         run: |
           python -m pytest tests/security --noconftest -v

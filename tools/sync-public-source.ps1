@@ -105,7 +105,31 @@ Write-Host ""
 function Get-FileSha256 {
     param([string]$FilePath)
     if (-not (Test-Path $FilePath)) { return $null }
-    return (Get-FileHash -Path $FilePath -Algorithm SHA256).Hash.ToLower()
+
+    # 白名单同步范围全部为 UTF-8 文本。统一将 CRLF 规范化为 LF 后计算，
+    # 避免 Windows 生成的 Manifest 在 GitHub Ubuntu 检出后哈希失效。
+    $bytes = [System.IO.File]::ReadAllBytes($FilePath)
+    $normalized = New-Object System.Collections.Generic.List[byte]
+    for ($index = 0; $index -lt $bytes.Length; $index++) {
+        if (
+            $bytes[$index] -eq 13 -and
+            ($index + 1) -lt $bytes.Length -and
+            $bytes[$index + 1] -eq 10
+        ) {
+            $normalized.Add(10)
+            $index++
+        } else {
+            $normalized.Add($bytes[$index])
+        }
+    }
+
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        $hashBytes = $sha256.ComputeHash($normalized.ToArray())
+        return ([System.BitConverter]::ToString($hashBytes) -replace '-', '').ToLower()
+    } finally {
+        $sha256.Dispose()
+    }
 }
 
 # ============================================================
