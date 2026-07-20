@@ -124,8 +124,8 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          config-path: ".gitleaks.toml"
+          GITLEAKS_CONFIG: .gitleaks.toml
+          GITLEAKS_VERSION: "8.30.1"
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -152,40 +152,11 @@ jobs:
         run: |
           python tools/verify-public-content.py
 
-      - name: Check contact info allowlist paths
+      - name: Check contact info allowlist (phone + wechat + email)
         run: |
-          set -e
-          echo "Checking authorized contact info only appears in approved files..."
-          # 授权联系信息
-          PHONE="15059779318"
-          WECHAT="Tsss9318"
-          EMAIL="15059779318@163.com"
-          
-          # 查找包含手机号的文件
-          PHONE_FILES=$(git grep -l "$PHONE" 2>/dev/null || true)
-          echo "Files containing phone $PHONE:"
-          echo "$PHONE_FILES"
-          
-          # 批准路径
-          APPROVED=$(cat <<'EOF'
-          public-content/个人介绍/联系方式.md
-          wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php
-          docs/GitHub仓库脱敏整改执行方案-V2.md
-          docs/执行报告-阶段0-4-6.md
-          tools/scan-secrets.py
-          .gitleaks.toml
-          EOF
-          )
-          
-          FAILED=0
-          for f in $PHONE_FILES; do
-            if ! echo "$APPROVED" | grep -qxF "$f"; then
-              echo "::error::Authorized phone appears in unapproved file: $f"
-              FAILED=1
-            fi
-          done
-          if [ $FAILED -ne 0 ]; then exit 1; fi
-          echo "Contact info allowlist check PASSED"
+          python tools/scan-secrets.py
+          # scan-secrets.py 内置精确 allowlist，同时检查手机号、微信号、邮箱
+          # 只允许在批准文件中出现授权值，覆盖 Layer 3 全部 PII 检查
 
   # ==================== Manifest 校验 ====================
   manifest-check:
@@ -233,10 +204,12 @@ jobs:
         run: |
           python -m pytest tests/security/test_scan_secrets.py --noconftest -v
 
-      - name: Test sync script idempotency (dry-run validation)
+      - name: Validate sync script policy declarations
         run: |
           set -e
-          echo "Testing sync script policy compliance..."
+          echo "Validating sync script policy declarations..."
+          # 真正的幂等、撤回删除和自有文件保护已由 TestSyncPolicy
+          # 在临时源/目标目录中执行两次 PowerShell 同步完成验证。
           # 验证同步脚本白名单不含 configs/（生产配置独立维护）
           if grep -q "configs\\\\rag_config" tools/sync-public-source.ps1 || \
              grep -q "configs/rag_config" tools/sync-public-source.ps1; then

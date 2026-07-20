@@ -13,7 +13,7 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "sha256": "1bb8a403dbdc98bc687948aa160e79d16a3a5f4edcfc5f34d51a7e6fa1921dc8"
+      "sha256": "8aef51d27a034909efefdd1e9f806d5056dd08b5742f98026db5b3e1ed2a65d0"
     },
     {
       "path": ".gitignore",
@@ -21,7 +21,7 @@
     },
     {
       "path": ".gitleaks.toml",
-      "sha256": "f36865a30139dfb47bf681a97452eb835077d618be82746a5ded06686e9861a8"
+      "sha256": "97a66f7d5937341ecf9e0b2287de0cdcdfd536f513dc783adee66d3a25d15ef4"
     },
     {
       "path": "CHANGELOG.md",
@@ -65,7 +65,7 @@
     },
     {
       "path": "docs/仓库脱敏整改执行报告-A-I.md",
-      "sha256": "e043bcf79e70868d06567138c1566fe89c0eb6a9fe4871b105f9ecbbc5a90514"
+      "sha256": "51ca7f6ee8f43049ff6f84856aeffc93bc41ca77079a7db2617b898880202ee3"
     },
     {
       "path": "docs/执行报告-阶段0-4-6.md",
@@ -405,7 +405,7 @@
     },
     {
       "path": "tests/security/test_scan_secrets.py",
-      "sha256": "63d1f24b3ef8c656e3ad07abb9d66e46c7e58778b887184b02c77d469b7bafe2"
+      "sha256": "b5c2b1496b67f541a3213948a9b4b033a4bc8c1268daf6b6337ddcb9113d0822"
     },
     {
       "path": "tests/unit/test_knowledge.py",
@@ -441,7 +441,7 @@
     },
     {
       "path": "tools/scan-secrets.py",
-      "sha256": "6c39588352595c2e23f4762f8e25d95ab6c423b50998a81a2171a923ec23a7cf"
+      "sha256": "3d5268f1d211209b2364414f7d6d27e35aca52519508d96b7c2a8103f40f32a7"
     },
     {
       "path": "tools/sync-public-source.ps1",
@@ -457,7 +457,7 @@
     },
     {
       "path": "tools/verify-repository.ps1",
-      "sha256": "644bd672e4fc22384713442d5f2788ab0ed52e87df6dc9fa7f369ff928f62ddd"
+      "sha256": "36ffbd893b3d01e01965fde9c0a0c1a14f67e3c90af2baa6d86f2399c12b4870"
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",

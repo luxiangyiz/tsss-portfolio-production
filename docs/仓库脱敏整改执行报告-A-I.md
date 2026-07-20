@@ -3,7 +3,8 @@
 - 项目：`project-016-zwd-portfolio-production`
 - 对应方案：`docs/GitHub仓库脱敏整改执行方案-V2.md`
 - 执行日期：2026-07-18
-- 执行状态：**阶段 A-I 全部完成，本地验收 11/11 通过**
+- 复验整改日期：2026-07-20
+- 执行状态：**阶段 A-I 本地整改已完成；12 项验收中 11 项通过，仅待提交后复验工作区干净状态**
 - 待执行：阶段 J（全新克隆复验）、阶段 K（创建 GitHub Private 仓库）— 需用户 GitHub 账号操作
 
 ## 1. 执行总览
@@ -44,20 +45,24 @@
 ## 3. 本地验收结果（verify-repository.ps1）
 
 ```
-EXIT=0  11/11 通过
+当前未提交状态：EXIT=1，11/12 通过
+唯一失败项：VR-02 工作区不干净（本轮整改文件尚未提交）
 
   [PASS] VR-01 运行目录确认 — 目标目录为 project-016
-  [PASS] VR-02 工作区状态 — 工作区干净
+  [FAIL] VR-02 工作区状态 — 本轮整改文件尚未提交
   [PASS] VR-03 当前分支 — 分支: main
   [PASS] VR-04 必要文件跟踪 — 12 个必要文件全部被 Git 跟踪
   [PASS] VR-05 拒绝目录和敏感文件 — 未发现拒绝目录或敏感文件
   [PASS] VR-06 工作区密钥扫描 — 未发现有效密钥
-  [PASS] VR-07 Git 历史密钥扫描 — 全历史无有效密钥
+  [PASS] VR-07 Git 历史密钥扫描 — 163 个历史唯一 Blob 无有效密钥
   [PASS] VR-08 公开内容四字段 — 所有公开 Markdown 四字段通过
   [PASS] VR-09 Manifest 验证 — source-sync + repository manifest 全部通过
-  [PASS] VR-10 跟踪文件完整性 — 145 个跟踪文件全部存在于磁盘
+  [PASS] VR-10 跟踪文件完整性 — 147 个跟踪文件全部存在于磁盘
   [PASS] VR-11 必要文件未忽略 — 无必要文件被 .gitignore 忽略
+  [PASS] VR-12 验证报告输出 — JSON 与控制台均统计 12 项
 ```
+
+提交本轮整改并重新生成 Manifest 后，应再次运行总验收；届时 VR-02 必须转为通过，退出码必须为 0。
 
 ## 4. 交付物清单
 
@@ -73,7 +78,7 @@ EXIT=0  11/11 通过
 | 8 | repository-manifest.json | `manifests/repository-manifest.json` (144 文件) | ✅ |
 | 9 | verify-manifest.py | `tools/verify-manifest.py` (10 项检查) | ✅ |
 | 10 | verify-repository.ps1 | `tools/verify-repository.ps1` (12 项检查) | ✅ |
-| 11 | 扫描器+验证器测试 | `tests/security/test_scan_secrets.py` (32 测试) | ✅ |
+| 11 | 扫描器+同步策略测试 | `tests/security/test_scan_secrets.py` (38 测试) | ✅ |
 | 12 | GitHub Private 仓库 | — | ⏳ 阶段 K |
 | 13 | GitHub Actions 通过记录 | — | ⏳ 阶段 K 后 |
 | 14 | 全新克隆验收记录 | — | ⏳ 阶段 J |
@@ -81,13 +86,30 @@ EXIT=0  11/11 通过
 
 ## 5. 仓库统计
 
-- Git 跟踪文件数：145（含 repository-manifest.json 自身）
+- Git 跟踪文件数：147（含 repository-manifest.json 自身）
 - source-sync-manifest 记录：115 个源同步文件
-- repository-manifest 记录：144 个文件（排除自身）
+- repository-manifest 记录：146 个文件（排除自身）
 - 公开 Markdown：9 份，全部四字段通过
-- Git 提交数：本次整改新增 12 个提交
-- 安全扫描：工作区 0 命中，Git 历史 0 命中
+- Git 提交数：当前共 20 个提交
+- 自定义安全扫描：工作区 0 个阻塞项，163 个历史唯一 Blob 0 个阻塞项
+- 官方 Gitleaks：v8.30.1 扫描 20 个提交，结果 `no leaks found`
+- 联系方式精确路径：手机号、微信号、邮箱均覆盖批准与未批准路径测试
+- 同步策略：已在临时目录真实验证连续两次幂等、源文件撤回和生产自有文件保护
 
-## 6. 阶段 J/K 移交说明
+## 6. 2026-07-20 复验整改内容
+
+1. Git 历史扫描由“只检查历史文件名”升级为逐 Commit 唯一 Blob 内容扫描。
+2. 联系方式 allowlist 取消整个 `docs/` 前缀放行，改为精确文件列表。
+3. 手机号、微信号和邮箱统一执行“准确值 + 准确路径”校验。
+4. 扫描器测试全部使用虚假联系方式，不再复制真实联系方式到测试文件。
+5. 新增真实 PowerShell 同步策略测试：
+   - 连续执行两次无文件和 Manifest 差异；
+   - 源文件撤回后只删除对应同步文件；
+   - `deploy/` 中生产自有文件保持不变；
+   - 公开 Markdown 四字段错误时同步退出码非零。
+6. 修正 VR-12 写入顺序，JSON 和控制台统一统计 12 项。
+7. `.gitleaks.toml` 更新为 Gitleaks v8.30.1 支持的配置格式并完成官方扫描。
+
+## 7. 阶段 J/K 移交说明
 
 详见 `docs/阶段J-K-GitHub移交说明.md`

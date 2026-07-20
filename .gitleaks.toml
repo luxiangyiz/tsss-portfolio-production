@@ -12,11 +12,17 @@ title = "zwd-portfolio-production gitleaks config"
 
 # 继承官方默认规则（覆盖 OpenAI/GitHub/AWS/Google/Slack/JWT/私钥等）
 [extend]
-use = "default"
+useDefault = true
 
 # 全局 allowlist — 仅放行已确认的安全占位符和已授权公开联系信息
-[allowlist]
+[[allowlists]]
 description = "Authorized public contact info and known template placeholders"
+
+# 安全扫描器测试会在运行时拼接虚假密钥，用于验证检测规则。
+# 历史提交中曾直接保存这些虚假夹具，因此仅对该精确测试文件放行。
+paths = [
+    '''^tests/security/test_scan_secrets\.py$''',
+]
 
 # 精确正则：只放行这些已知安全值，不忽略整个文件
 regexes = [

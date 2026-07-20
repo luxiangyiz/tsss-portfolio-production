@@ -33,31 +33,45 @@ CONTACT_ALLOWLIST = {
         "15059779318",             # 手机号
         "15059779318@163.com",     # 邮箱
     ],
+    # 精确文件列表 — 不使用目录前缀放行（避免新文件自动获得授权）
     "allowed_paths": [
-        "public-content/个人介绍/联系方式.md",      # 公开联系页
-        "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",  # 联系页渲染
-        "tools/scan-secrets.py",   # 扫描器 allowlist 定义自身
-        ".gitleaks.toml",          # Gitleaks 配置 allowlist 定义
-        ".github/workflows/verify.yml",  # CI allowlist 路径检查步骤
+        # 公开联系页（用户确认公开的真实用途）
+        "public-content/个人介绍/联系方式.md",
+        "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
+        # 扫描器/配置自身必须包含授权值以实现 allowlist 功能
+        "tools/scan-secrets.py",
+        ".gitleaks.toml",
+        # 文档记载 allowlist（精确到每个文件）
+        "docs/GitHub仓库脱敏整改执行方案-V2.md",
+        "docs/执行报告-阶段0-4-6.md",
+        "docs/仓库脱敏整改执行报告-A-I.md",
+        "docs/阶段J-K-GitHub移交说明.md",
     ],
-    "allowed_path_prefixes": [
-        "docs/",   # 文档可记载 allowlist 本身
-    ],
+    "allowed_path_prefixes": [],  # 空：不使用前缀放行
     "purpose": "个人网站公开联系方式，已用户确认公开",
 }
 
 # 扫描器自测文件 — 含测试用假密钥/假 PII（非真实凭证），跳过 Layer 2/3 内容扫描
-# 这些文件的设计目的就是包含可检出的测试模式
 SCANNER_TEST_FILES = {
     "tests/security/test_scan_secrets.py",
 }
 
+# 已知文档/测试示例值 — 形似密钥但非真实凭证，分类为 info 不阻塞
+# 这些值在公开文档中广泛用作示例，不构成泄露
+KNOWN_EXAMPLE_VALUES = {
+    "sk-" + "abcdefghijklmnopqrstuvwxyz1234",       # 文档负向示例
+    "AKIA" + "IOSFODNN7EXAMPLE",                   # AWS 官方文档示例
+    "ghp_" + "abcdefghijklmnopqrstuvwxyz0123456789", # 测试 fixture
+}
 
-def is_path_allowed(rel_path: str) -> bool:
-    """判断该路径是否在联系信息 allowlist 范围内。"""
-    if rel_path in CONTACT_ALLOWLIST["allowed_paths"]:
+
+def is_path_allowed(rel_path: str, allowlist: dict = None) -> bool:
+    """判断该路径是否在联系信息 allowlist 范围内。支持注入用于测试。"""
+    if allowlist is None:
+        allowlist = CONTACT_ALLOWLIST
+    if rel_path in allowlist["allowed_paths"]:
         return True
-    for prefix in CONTACT_ALLOWLIST["allowed_path_prefixes"]:
+    for prefix in allowlist.get("allowed_path_prefixes", []):
         if rel_path.startswith(prefix):
             return True
     return False
@@ -188,24 +202,29 @@ def scan_layer1_filename(rel_path: str) -> list[dict]:
 
 
 def scan_layer2_secrets(rel_path: str, content: str) -> list[dict]:
-    """Layer 2: 密钥形态扫描。"""
+    """Layer 2: 密钥形态扫描。已知示例值分类为 info（不阻塞）。"""
     findings = []
     for rule_id, pattern in SECRET_PATTERNS:
         for m in pattern.finditer(content):
             line_no = content[:m.start()].count("\n") + 1
+            matched_value = m.group()
+            severity = "info" if matched_value in KNOWN_EXAMPLE_VALUES else "fail"
             findings.append({
                 "rule": rule_id,
                 "file": rel_path,
                 "line": line_no,
-                "type": "密钥形态",
+                "type": "密钥形态" if severity == "fail" else "已知示例值（非真实密钥）",
+                "severity": severity,
             })
     return findings
 
 
-def scan_layer3_pii(rel_path: str, content: str) -> list[dict]:
-    """Layer 3: 个人敏感信息扫描（带 allowlist）。"""
+def scan_layer3_pii(rel_path: str, content: str, allowlist: dict = None) -> list[dict]:
+    """Layer 3: 个人敏感信息扫描（带 allowlist）。支持注入用于测试。"""
+    if allowlist is None:
+        allowlist = CONTACT_ALLOWLIST
     findings = []
-    path_allowed = is_path_allowed(rel_path)
+    path_allowed = is_path_allowed(rel_path, allowlist)
 
     for rule_id, pattern in PII_PATTERNS:
         for m in pattern.finditer(content):
@@ -215,20 +234,27 @@ def scan_layer3_pii(rel_path: str, content: str) -> list[dict]:
                 "file": rel_path,
                 "line": line_no,
                 "type": "个人敏感信息",
+                "severity": "fail",
             })
 
-    # 手机号：检查未授权的（授权值在 allowlist 中）
-    for m in PHONE_PATTERN.finditer(content):
-        phone = m.group()
-        if phone in CONTACT_ALLOWLIST["values"]:
-            # 授权值，但必须出现在允许路径
+    # 已授权联系方式仍必须位于精确批准路径。
+    # 这里逐值检查，覆盖手机号、微信号和邮箱；不依赖值本身的格式。
+    for value in allowlist["values"]:
+        for m in re.finditer(re.escape(value), content):
             if not path_allowed:
                 findings.append({
-                    "rule": "PII-PHONE-AUTH-MISPLACED",
+                    "rule": "PII-CONTACT-AUTH-MISPLACED",
                     "file": rel_path,
                     "line": content[:m.start()].count("\n") + 1,
-                    "type": f"授权手机号出现在未批准文件",
+                    "type": "授权联系方式出现在未批准文件",
+                    "severity": "fail",
                 })
+
+    # 手机号：继续检查所有未授权号码。
+    for m in PHONE_PATTERN.finditer(content):
+        phone = m.group()
+        if phone in allowlist["values"]:
+            # 授权值的路径限制已由上面的统一联系方式检查处理。
             continue
         # 未授权手机号
         findings.append({
@@ -236,6 +262,7 @@ def scan_layer3_pii(rel_path: str, content: str) -> list[dict]:
             "file": rel_path,
             "line": content[:m.start()].count("\n") + 1,
             "type": "未授权手机号",
+            "severity": "fail",
         })
 
     return findings
@@ -306,10 +333,14 @@ def scan_workspace(scan_root: Path = None) -> list[dict]:
 
 
 def scan_git_history() -> list[dict]:
-    """扫描 Git 全历史中的敏感文件名和密钥（只读）。"""
+    """扫描 Git 全历史：文件名 + blob 内容（逐 Commit Blob 扫描）。
+
+    对应方案 V2 阶段 G：真正的完整 Git 历史内容扫描。
+    遍历所有提交的所有 blob，对内容执行 Layer 2/3 扫描。
+    """
     findings = []
 
-    # 历史中出现过的所有文件名
+    # --- 第一部分：历史文件名和路径检查 ---
     result = subprocess.run(
         ["git", "-c", "core.quotepath=false", "log", "--all", "--name-only", "--pretty=format:"],
         cwd=ROOT,
@@ -318,38 +349,102 @@ def scan_git_history() -> list[dict]:
         encoding="utf-8",
     )
     if result.returncode != 0:
-        print(f"[WARN] git log 历史扫描失败: {result.stderr}", file=sys.stderr)
-        return findings
+        print(f"[WARN] git log 历史文件名扫描失败: {result.stderr}", file=sys.stderr)
+    else:
+        historical_files = set()
+        for line in result.stdout.splitlines():
+            line = line.strip()
+            if line:
+                historical_files.add(line)
 
-    historical_files = set()
-    for line in result.stdout.splitlines():
-        line = line.strip()
-        if line:
-            historical_files.add(line)
-
-    # 检查历史文件名
-    deny_historical = [
-        ".env", "id_rsa", "id_ed25519", "credentials.json",
-    ]
-    for hf in historical_files:
-        name = Path(hf).name
-        if name in deny_historical:
-            findings.append({
-                "rule": "HIST-DENY-FILE",
-                "file": hf,
-                "line": 0,
-                "type": f"历史中存在拒绝文件: {name}",
-            })
-        # 拒绝目录在历史中
-        normalized = hf.replace("\\", "/").lstrip("/")
-        for deny_dir in DENY_ROOT_DIRS:
-            if normalized.startswith(deny_dir + "/") or normalized == deny_dir:
+        deny_historical = [".env", "id_rsa", "id_ed25519", "credentials.json"]
+        for hf in historical_files:
+            name = Path(hf).name
+            if name in deny_historical:
                 findings.append({
-                    "rule": "HIST-DENY-DIR",
+                    "rule": "HIST-DENY-FILE",
                     "file": hf,
                     "line": 0,
-                    "type": f"历史中存在拒绝目录: {deny_dir}",
+                    "type": f"历史中存在拒绝文件: {name}",
                 })
+            normalized = hf.replace("\\", "/").lstrip("/")
+            for deny_dir in DENY_ROOT_DIRS:
+                if normalized.startswith(deny_dir + "/") or normalized == deny_dir:
+                    findings.append({
+                        "rule": "HIST-DENY-DIR",
+                        "file": hf,
+                        "line": 0,
+                        "type": f"历史中存在拒绝目录: {deny_dir}",
+                    })
+
+    # --- 第二部分：历史 blob 内容扫描（密钥/PII） ---
+    # 收集所有提交的所有 blob（去重）
+    commits_result = subprocess.run(
+        ["git", "rev-list", "--all"],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+    )
+    if commits_result.returncode != 0:
+        print(f"[WARN] git rev-list 失败: {commits_result.stderr}", file=sys.stderr)
+        return findings
+
+    commits = [c.strip() for c in commits_result.stdout.splitlines() if c.strip()]
+    seen_blobs = {}  # blob_sha -> path（首次出现的路径）
+
+    for commit in commits:
+        tree_result = subprocess.run(
+            ["git", "ls-tree", "-r", commit],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+        )
+        if tree_result.returncode != 0:
+            continue
+        for line in tree_result.stdout.splitlines():
+            # 格式: <mode> <type> <sha>\t<path>
+            parts = line.split("\t", 1)
+            if len(parts) != 2:
+                continue
+            meta, path = parts
+            meta_parts = meta.split()
+            if len(meta_parts) >= 3 and meta_parts[1] == "blob":
+                sha = meta_parts[2]
+                if sha not in seen_blobs:
+                    seen_blobs[sha] = path
+
+    print(f"  历史唯一 blob 数: {len(seen_blobs)}")
+
+    # 扫描每个唯一 blob 的内容（跳过测试 fixture 文件）
+    for sha, path in seen_blobs.items():
+        if path in SCANNER_TEST_FILES:
+            continue
+
+        blob_result = subprocess.run(
+            ["git", "cat-file", "blob", sha],
+            cwd=ROOT,
+            capture_output=True,
+        )
+        if blob_result.returncode != 0:
+            continue
+        try:
+            content = blob_result.stdout.decode("utf-8", errors="ignore")
+        except Exception:
+            continue
+
+        # Layer 2: 密钥形态
+        for finding in scan_layer2_secrets(path, content):
+            finding["type"] = f"历史 blob: {finding['type']}"
+            findings.append(finding)
+
+        # Layer 3: PII（授权值在历史中不报 misplaced）
+        for finding in scan_layer3_pii(path, content):
+            if finding["rule"] == "PII-CONTACT-AUTH-MISPLACED":
+                continue
+            finding["type"] = f"历史 blob: {finding['type']}"
+            findings.append(finding)
 
     return findings
 
@@ -375,8 +470,11 @@ def main() -> int:
 
     # 输出
     if args.json or args.output:
+        # info 级别不阻塞，但仍记录在报告中
+        blocking = [f for f in findings if f.get("severity", "fail") == "fail"]
         report = {
             "total_findings": len(findings),
+            "blocking_findings": len(blocking),
             "findings": findings,
         }
         report_json = json.dumps(report, ensure_ascii=False, indent=2)
@@ -391,12 +489,16 @@ def main() -> int:
         if findings:
             print()
             for f in findings:
-                print(f"  [FAIL] {f['rule']} | {f['file']}:{f['line']} | {f['type']}")
+                sev = f.get("severity", "fail")
+                icon = "[FAIL]" if sev == "fail" else "[INFO]"
+                print(f"  {icon} {f['rule']} | {f['file']}:{f['line']} | {f['type']}")
         print()
-        print(f"发现 {len(findings)} 项问题")
+        blocking = [f for f in findings if f.get("severity", "fail") == "fail"]
+        print(f"发现 {len(findings)} 项（阻塞 {len(blocking)}，已知示例 {len(findings) - len(blocking)}）")
 
     print()
-    if findings:
+    blocking = [f for f in findings if f.get("severity", "fail") == "fail"]
+    if blocking:
         print("扫描结果: 失败")
         return 1
     else:

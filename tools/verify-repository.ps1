@@ -268,6 +268,9 @@ if (-not (Test-Path $reportDir)) {
 }
 $reportPath = Join-Path $reportDir "repository-verification.json"
 
+# 先把 VR-12 纳入结果，再序列化，确保 JSON 与控制台都统计 12 项。
+Add-Check "VR-12" "验证报告输出" "pass" "报告已写入 reports/repository-verification.json"
+
 # 确定退出码
 if ($results.summary.failed -gt 0) {
     $results.exit_code = 1
@@ -279,8 +282,6 @@ if ($results.summary.failed -gt 0) {
 $reportJson = $results | ConvertTo-Json -Depth 6
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 [System.IO.File]::WriteAllText($reportPath, $reportJson, $utf8NoBom)
-
-Add-Check "VR-12" "验证报告输出" "pass" "报告已写入 reports/repository-verification.json"
 
 # ============================================================
 # 汇总输出
