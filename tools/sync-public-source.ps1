@@ -106,9 +106,20 @@ function Get-FileSha256 {
     param([string]$FilePath)
     if (-not (Test-Path $FilePath)) { return $null }
 
-    # 白名单同步范围全部为 UTF-8 文本。统一将 CRLF 规范化为 LF 后计算，
-    # 避免 Windows 生成的 Manifest 在 GitHub Ubuntu 检出后哈希失效。
+    # 文本文件统一将 CRLF 规范化为 LF，避免跨平台检出后哈希失效；
+    # PNG 等二进制资产必须按原始字节计算，不能改写其中偶然出现的 0D0A。
     $bytes = [System.IO.File]::ReadAllBytes($FilePath)
+    $binaryExtensions = @('.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.woff', '.woff2')
+    if ($binaryExtensions -contains [System.IO.Path]::GetExtension($FilePath).ToLowerInvariant()) {
+        $sha256 = [System.Security.Cryptography.SHA256]::Create()
+        try {
+            $hashBytes = $sha256.ComputeHash($bytes)
+            return ([System.BitConverter]::ToString($hashBytes) -replace '-', '').ToLower()
+        } finally {
+            $sha256.Dispose()
+        }
+    }
+
     $normalized = New-Object System.Collections.Generic.List[byte]
     for ($index = 0; $index -lt $bytes.Length; $index++) {
         if (

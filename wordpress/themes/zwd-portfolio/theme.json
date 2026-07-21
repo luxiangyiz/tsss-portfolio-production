@@ -8,10 +8,11 @@
       "defaultGradients": false,
       "defaultPalette": false,
       "palette": [
-        { "name": "墨黑", "slug": "ink", "color": "#111111" },
-        { "name": "辅助灰", "slug": "muted", "color": "#666666" },
-        { "name": "暖白", "slug": "paper", "color": "#F7F7F3" },
-        { "name": "分隔线", "slug": "line", "color": "#D8D8D2" },
+        { "name": "钴蓝", "slug": "blue", "color": "#3047FF" },
+        { "name": "墨黑", "slug": "ink", "color": "#111318" },
+        { "name": "辅助灰", "slug": "muted", "color": "#687080" },
+        { "name": "冷白", "slug": "paper", "color": "#F5F6F2" },
+        { "name": "分隔线", "slug": "line", "color": "#CDD1D8" },
         { "name": "纯白", "slug": "white", "color": "#FFFFFF" }
       ]
     },

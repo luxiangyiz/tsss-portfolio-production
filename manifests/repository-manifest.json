@@ -1,7 +1,7 @@
 {
   "version": "2.0",
   "project": "project-016-zwd-portfolio-production",
-  "total_files": 160,
+  "total_files": 150,
   "files": [
     {
       "path": ".dockerignore",
@@ -121,7 +121,7 @@
     },
     {
       "path": "manifests/source-sync-manifest.json",
-      "sha256": "0c5d70aa6d16dbdd597bc5e02bd2047891d23ad4f59307272ce5e9b2b638f91c"
+      "sha256": "edbeb57b5a44eea811a4381d33c923cb49e7ff2e76104eed65abbad0478074e4"
     },
     {
       "path": "public-content/个人介绍/个人介绍.md",
@@ -457,7 +457,7 @@
     },
     {
       "path": "tests/security/test_production_deploy.py",
-      "sha256": "388d17858199093dd2756f39cebf04a2d837eb78b85450cc49d554e059fdbc3c"
+      "sha256": "dff8532e2438aec992d32e7b52b8bce0624a40a033925a5d551ee5131330310a"
     },
     {
       "path": "tests/security/test_scan_secrets.py",
@@ -489,7 +489,7 @@
     },
     {
       "path": "tests/wordpress/test_wordpress_files.py",
-      "sha256": "b559a547d1ff610753d161c5244e3859f04c65f8cae735d8e6f3046f318583a4"
+      "sha256": "8f1638b0e4deb020b571f992d3d25916ebb7cb9332a9781d9ec7ace05ce49605"
     },
     {
       "path": "tools/gen-repository-manifest.py",
@@ -501,7 +501,7 @@
     },
     {
       "path": "tools/sync-public-source.ps1",
-      "sha256": "0c3785420f0b7af58ff016c974feb55eaeadad3aa74b36d74ad33483e5ea4d42"
+      "sha256": "b62ec2a1af822e3eeec495479902168205c2ec664f016e34e30df41c138d3144"
     },
     {
       "path": "tools/verify-manifest.py",
@@ -517,7 +517,7 @@
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
-      "sha256": "ada58db048ac968cebb6190c473ca34634358a278bb49e6d7762ef2484d1cc7b"
+      "sha256": "e2ef2cadd9c33f40678d378e65d2a14573de40580088bbf1b19e8b055a27c022"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/LICENSE",
@@ -528,72 +528,36 @@
       "sha256": "2e2be84e00070dd9fc61f382ccd2855044608a8e0b6645c74bbba4935ce3731f"
     },
     {
-      "path": "wordpress/themes/zwd-portfolio/assets/build/about.css",
-      "sha256": "66cfa5a3d14b6d97e028297851864ca28abedce6a122dd6171bf47ca2a551be6"
-    },
-    {
       "path": "wordpress/themes/zwd-portfolio/assets/build/homepage.css",
-      "sha256": "6b14003a6ae1b82f9d4b2895b3f6e31089cddcc5d3987f60ee1f1656bcae057e"
+      "sha256": "04dfbd22de42469c44c5c26794782f4cf39f41a34382ed8845654ac421f008f1"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/assets/build/homepage.js",
-      "sha256": "5d72414214ab922fa2c633275cb8774f54b7f519185fe61f3c8fbfec9896c34d"
+      "sha256": "ce60b199cba20b289784490aca7956fde5846df0bc67f764dd597f3e398a844c"
     },
     {
-      "path": "wordpress/themes/zwd-portfolio/assets/build/project-carousel.js",
-      "sha256": "1ab9fd7b8e054510b3f0a738375d17b08580ae400312937ac34bb2944294c049"
+      "path": "wordpress/themes/zwd-portfolio/assets/images/hero-portrait.png",
+      "sha256": "1582ccc172f6754dc73d29169dd84d53f7d92c375560a4d5176e7d73d4ae333f"
     },
     {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery.js",
-      "sha256": "d0552fa0f429b4a7deeff35c82c84db2c725507afa7df906bad2aa5608a335fe"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery3D.js",
-      "sha256": "cf53aae6e2b9b3ae3b250321c5264a411333d44e77e370e3c8bf1e84f17c9463"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/components/Prism.js",
-      "sha256": "4583199bd4cfa301b0a8973267e96a18c87d1f28afcbd7305d3c330cfb938125"
+      "path": "wordpress/themes/zwd-portfolio/assets/src/components/ProjectCarousel.js",
+      "sha256": "cb9c9b54a1aab542ed3504bddc9c82cf6ef27163e85dcdfeb4dd8284508bfe92"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/assets/src/components/RagAssistant.js",
-      "sha256": "d7d8e0296639c1d4c89a6ffccd7092423814041a7bef70458be610ca1b0fceb9"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/components/ShinyText.js",
-      "sha256": "cd522a1d0387e21200cf54ca0d7553034332d1aeabc2f259e5da91c44db55d79"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/data/navigation-items.js",
-      "sha256": "3a043c5a526da16347e4407d78122debde0740e429f612a47d7e9742a65ae431"
+      "sha256": "870cd337722bbfe0cc46c2094323d20c07c146a72fd4be346875803c9f048f5f"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/assets/src/homepage.css",
-      "sha256": "d8b8364d8afd31aa105f41226abed2b0ef5ce10609daea903c97d084ba1537f2"
+      "sha256": "08ac6f197bff9e25cd340f64647e908d8f9771bebb995f88294837ddecc87116"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/assets/src/homepage.js",
-      "sha256": "bf2be74020a16c652f65c361487fb4f16a4472332a510098cf80b4f5cd14c11d"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/pages/about.css",
-      "sha256": "34194b5108912abe9b423f068a32ddc5e00090264601a51dd28313f920fcfc14"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/pages/projects.css",
-      "sha256": "1f03c29a55020f2a662af39874cbb05036d59f4fb5a078f5103e4b4f51084391"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/project-carousel.js",
-      "sha256": "b5005192aefe9ca397ade498d3bfb0ea5318538eec166a52b0bea46ad2925385"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/assets/src/projects-page.js",
-      "sha256": "7465d97e2d9e653ac775459a8d9e209ce8ddb21d96879e6b359320099cd79a52"
+      "sha256": "1987ea4f2a7d1023fc977993282ef4005bd56617685fa2f765de4c6966b0c475"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/functions.php",
-      "sha256": "e86ff86192dea11116fafd5530b8f5b6510f12d04fc831bacbf7d7a77b34e5af"
+      "sha256": "10cb355626196bdf4e89a5f61ab75c0c3de0df341b687eaf8eb8d00e160107b9"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/index.php",
@@ -601,23 +565,19 @@
     },
     {
       "path": "wordpress/themes/zwd-portfolio/parts/footer.html",
-      "sha256": "50e7b698ca9473765f3c7c9072261227f41c0883e90e266dee9f1b54c1e340f5"
+      "sha256": "7b20b9b4c61f7c43ad72fc437f4f7c26cfd190361f79500f310f7adc10480871"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/parts/header.html",
-      "sha256": "62a54e9d69dfd53fbd7a82154b4d84c98c7d78f1b38318c0ff0c5e830e6eb19c"
+      "sha256": "1b6e61bd1aaff560de9fe62046e991691982318bd61f32369e11a02538ed1c26"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/style.css",
-      "sha256": "3f4854a10049318a07677c0f5f1d90b342953f23821c6696865b480b59a7fe4c"
+      "sha256": "ff319e68df6460247b123ec11c1c124cd899fb306882678354e0869a223464dc"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/templates/404.html",
       "sha256": "7a5c3eaf5d04994627973cde837d859200df243274c5a77d5f6255a3d3a8b88f"
-    },
-    {
-      "path": "wordpress/themes/zwd-portfolio/templates/archive-project.html",
-      "sha256": "673b919a36662395c395a5d5a429c18374a8e6aa1b140b763f44f6ecf3d54297"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/templates/front-page.html",
@@ -633,7 +593,7 @@
     },
     {
       "path": "wordpress/themes/zwd-portfolio/templates/single-project.html",
-      "sha256": "c04ad7f9aef2b3d435c2e2c59cffb78435bc6174122190371ec01bfa7155db16"
+      "sha256": "c6fc62b17cc0cd5dc03dbae94a453d9dc825b3c0583f5b294c0af1fe9851b7e4"
     },
     {
       "path": "wordpress/themes/zwd-portfolio/templates/single.html",
@@ -641,7 +601,7 @@
     },
     {
       "path": "wordpress/themes/zwd-portfolio/theme.json",
-      "sha256": "cf7add481ef524d69a7490acd5e9d9523a4e5c9b54d9b7bdb91e32f0baf1048c"
+      "sha256": "90e20fc1e0215b38f9e34084b3de1ff3308ac7168be57e456e6477131035e4d8"
     }
   ]
 }

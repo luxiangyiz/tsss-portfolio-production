@@ -113,26 +113,29 @@ def test_production_scripts_have_required_safety_markers():
     assert "wp zwd verify" in scripts["init-wordpress.sh"]
 
 
-def test_mobile_homepage_exposes_all_navigation_cards_without_horizontal_scroll():
+def test_homepage_uses_responsive_horizontal_project_cards():
     source_css = (THEME / "assets" / "src" / "homepage.css").read_text(
         encoding="utf-8"
     )
     runtime_css = (THEME / "style.css").read_text(encoding="utf-8")
 
-    assert "grid-template-columns: repeat(2,minmax(0,1fr))" in source_css
-    assert "overflow-x: auto" not in source_css
-    assert ".home .zwd-gallery-enhancement" in runtime_css
-    assert "scroll-snap-type: none" in runtime_css
+    assert "overflow-x: auto" in source_css
+    assert "scroll-snap-type: x mandatory" in source_css
+    assert "touch-action: pan-y" in source_css
+    assert "@media (max-width: 640px)" in source_css
+    assert "overflow-x: hidden" in runtime_css
 
 
-def test_projects_archive_and_contact_page_expose_requested_links():
-    archive = (THEME / "templates" / "archive-project.html").read_text(
-        encoding="utf-8"
-    )
+def test_project_cards_use_public_detail_pages_without_an_archive():
     plugin = PLUGIN.read_text(encoding="utf-8")
 
-    assert 'href="/contact/"' in archive
-    assert "联系我" in archive
+    assert not (THEME / "templates" / "archive-project.html").exists()
+    assert (THEME / "templates" / "single-project.html").exists()
+    assert "zwd_project_gallery" in plugin
+    assert "'slug'       => 'projects'" in plugin
+    assert "'publicly_queryable'  => true" in plugin
+    assert "migrate-single-page" in plugin
+    assert "template_redirect" in plugin
     assert "https://github.com/luxiangyiz/tsss-portfolio-production" in plugin
     assert 'rel="noopener noreferrer"' in plugin
 

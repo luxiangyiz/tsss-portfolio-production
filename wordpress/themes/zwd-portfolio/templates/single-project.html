@@ -1,18 +1,18 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:group {"tagName":"main","align":"full","className":"page-main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group alignfull page-main">
-  <!-- wp:group {"align":"wide","className":"project-single","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group alignwide project-single">
-    <!-- wp:paragraph {"className":"project-single__meta"} -->
-    <p class="project-single__meta">Selected Project</p>
-    <!-- /wp:paragraph -->
-    <!-- wp:post-title {"level":1} /-->
-    <!-- wp:post-excerpt /-->
-    <!-- wp:post-terms {"term":"project_skill","separator":" · "} /-->
+<!-- wp:group {"tagName":"main","align":"full","className":"project-single","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull project-single">
+  <!-- wp:group {"align":"wide","className":"project-single__hero","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignwide project-single__hero">
+    <!-- wp:html --><a class="project-single__back" href="/#projects">← 返回全部项目</a><!-- /wp:html -->
+    <!-- wp:post-terms {"term":"project_skill","className":"project-single__skills"} /-->
+    <!-- wp:post-title {"level":1,"className":"project-single__title"} /-->
+    <!-- wp:post-excerpt {"className":"project-single__excerpt"} /-->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:group {"align":"wide","className":"project-single__body","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group alignwide project-single__body">
     <!-- wp:post-content /-->
-    <!-- wp:paragraph {"className":"project-single__back"} -->
-    <p class="project-single__back"><a href="/projects/">← 返回全部项目</a></p>
-    <!-- /wp:paragraph -->
+    <!-- wp:html --><div class="project-single__end"><a href="/#projects">继续查看其他项目</a><a href="/#contact">联系我 →</a></div><!-- /wp:html -->
   </div>
   <!-- /wp:group -->
 </main>

@@ -44,41 +44,19 @@ function enqueue_styles(): void {
 		);
 		$rag_endpoint = defined( 'ZWD_RAG_PUBLIC_URL' )
 			? (string) constant( 'ZWD_RAG_PUBLIC_URL' )
-			: home_url( '/api/rag/public/ask' );
+			: home_url( '/public/ask' );
 		wp_add_inline_script(
 			'zwd-portfolio-homepage',
 			'window.zwdHomepageConfig = ' . wp_json_encode(
 				array(
 					'askUrl'   => esc_url_raw( $rag_endpoint ),
-					'timeoutMs' => 45000,
+					'timeoutMs' => 30000,
 				)
 			) . ';',
 			'before'
 		);
 	}
 
-	if ( is_page( 'about' ) ) {
-		$build_dir = get_template_directory() . '/assets/build/';
-		wp_enqueue_style(
-			'zwd-portfolio-about',
-			get_template_directory_uri() . '/assets/build/about.css',
-			array( 'zwd-portfolio' ),
-			(string) filemtime( $build_dir . 'about.css' )
-		);
-	}
-
-	if ( is_post_type_archive( 'project' ) ) {
-		$build_dir = get_template_directory() . '/assets/build/';
-		wp_enqueue_script(
-			'zwd-project-carousel',
-			get_template_directory_uri() . '/assets/build/project-carousel.js',
-			array(),
-			file_exists( $build_dir . 'project-carousel.js' )
-				? (string) filemtime( $build_dir . 'project-carousel.js' )
-				: time(),
-			true
-		);
-	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_styles' );
 

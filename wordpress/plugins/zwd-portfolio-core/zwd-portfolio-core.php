@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const VERSION = '1.0.0';
+const VERSION = '2.1.0';
 
 function register_content_types(): void {
 	register_post_type(
@@ -33,15 +33,20 @@ function register_content_types(): void {
 				'all_items'     => '全部项目',
 			),
 			'public'              => true,
-			'has_archive'         => 'projects',
-			'rewrite'             => array( 'slug' => 'projects', 'with_front' => false ),
+			'show_ui'             => true,
+			'show_in_menu'        => true,
+			'has_archive'         => false,
+			'rewrite'             => array(
+				'slug'       => 'projects',
+				'with_front' => false,
+			),
 			'menu_icon'           => 'dashicons-portfolio',
 			'menu_position'       => 20,
 			'show_in_rest'        => true,
 			'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'page-attributes' ),
 			'publicly_queryable'  => true,
-			'exclude_from_search' => false,
-			'show_in_nav_menus'   => true,
+			'exclude_from_search' => true,
+			'show_in_nav_menus'   => false,
 		)
 	);
 
@@ -53,11 +58,12 @@ function register_content_types(): void {
 				'name'          => '项目技能',
 				'singular_name' => '项目技能',
 			),
-			'public'            => true,
+			'public'            => false,
+			'show_ui'           => true,
 			'hierarchical'      => false,
 			'show_in_rest'      => true,
 			'show_admin_column' => true,
-			'rewrite'           => array( 'slug' => 'project-skill', 'with_front' => false ),
+			'rewrite'           => false,
 		)
 	);
 
@@ -76,6 +82,31 @@ function register_content_types(): void {
 	}
 }
 add_action( 'init', __NAMESPACE__ . '\\register_content_types' );
+
+function redirect_retired_routes(): void {
+	global $wp;
+
+	$path   = trim( (string) ( $wp->request ?? '' ), '/' );
+	$target = '';
+	$map    = array(
+		'about'    => 'about',
+		'resume'   => 'resume',
+		'contact'  => 'contact',
+		'projects' => 'projects',
+	);
+
+	if ( isset( $map[ $path ] ) ) {
+		$target = $map[ $path ];
+	} elseif ( str_starts_with( $path, 'project-skill/' ) ) {
+		$target = 'projects';
+	}
+
+	if ( '' !== $target ) {
+		wp_safe_redirect( home_url( '/#' . $target ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', __NAMESPACE__ . '\\redirect_retired_routes', 1 );
 
 function disable_discussion_support(): void {
 	foreach ( array( 'post', 'page', 'project' ) as $post_type ) {
@@ -272,7 +303,171 @@ function cleanup_starter_content(): void {
 	}
 }
 
+function render_project_gallery(): string {
+	$projects = get_posts(
+		array(
+			'post_type'      => 'project',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+		)
+	);
+
+	if ( empty( $projects ) ) {
+		return '<p class="zwd-project-empty">项目资料正在整理中。</p>';
+	}
+
+	ob_start();
+	?>
+	<div class="zwd-project-gallery" data-project-carousel>
+		<div class="zwd-projects__head zwd-frame">
+			<div>
+				<p class="zwd-kicker">02 / Selected work</p>
+				<h2 class="zwd-section-title">项目</h2>
+			</div>
+			<div>
+				<div class="zwd-project-controls" aria-label="项目卡片控制">
+					<button class="zwd-project-control" type="button" data-project-previous aria-label="上一个项目">←</button>
+					<button class="zwd-project-control" type="button" data-project-next aria-label="下一个项目">→</button>
+				</div>
+			</div>
+		</div>
+		<div class="zwd-project-track" data-project-track aria-label="项目卡片">
+			<?php foreach ( $projects as $index => $project ) : ?>
+				<?php
+				$skills = wp_get_post_terms( $project->ID, 'project_skill' );
+				$role   = (string) get_post_meta( $project->ID, '_zwd_project_role_summary', true );
+				$slug   = $project->post_name;
+				?>
+				<a class="zwd-project-card" href="<?php echo esc_url( get_permalink( $project ) ); ?>" data-project-card="<?php echo esc_attr( $slug ); ?>" draggable="false">
+					<span class="zwd-project-card__number"><?php echo esc_html( str_pad( (string) ( $index + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+					<span class="zwd-project-card__art" aria-hidden="true"></span>
+					<span class="zwd-project-card__body">
+						<span class="zwd-project-card__eyebrow"><?php echo esc_html( '' !== $role ? $role : 'AI 应用实践' ); ?></span>
+						<h3><?php echo esc_html( $project->post_title ); ?></h3>
+						<span class="zwd-project-card__excerpt"><?php echo esc_html( wp_trim_words( $project->post_excerpt, 52, '…' ) ); ?></span>
+						<?php if ( ! is_wp_error( $skills ) && ! empty( $skills ) ) : ?>
+							<span class="zwd-project-tags">
+								<?php foreach ( $skills as $skill ) : ?><span><?php echo esc_html( $skill->name ); ?></span><?php endforeach; ?>
+							</span>
+						<?php endif; ?>
+						<span class="zwd-project-card__cta">查看项目详情 →</span>
+					</span>
+				</a>
+			<?php endforeach; ?>
+		</div>
+	</div>
+	<?php
+	return (string) ob_get_clean();
+}
+add_shortcode( 'zwd_project_gallery', __NAMESPACE__ . '\\render_project_gallery' );
+
 function home_content(): string {
+	return <<<'BLOCKS'
+<!-- wp:html -->
+<section class="zwd-section zwd-hero" id="top" aria-labelledby="zwd-home-title">
+  <div class="zwd-frame zwd-hero__frame">
+    <div class="zwd-hero__copy">
+      <p class="zwd-hero__meta">PORTFOLIO <span>/ 2026</span></p>
+      <h1 id="zwd-home-title">钟伟达<span>.</span></h1>
+    </div>
+    <div class="zwd-hero__stage">
+      <div class="zwd-assistant-card">
+        <div class="zwd-assistant-card__head">
+          <span class="zwd-bot-mark" aria-hidden="true">AI</span>
+          <div>
+            <h2>你好，我是钟伟达的 AI 助手</h2>
+            <p class="zwd-assistant-card__lead">你可以问我关于项目、经历和能力的问题</p>
+          </div>
+        </div>
+        <div data-zwd-rag>
+          <form class="zwd-rag-form" action="/public/ask" method="post">
+            <label class="screen-reader-text" for="zwd-rag-question-static">向个人助手提问</label>
+            <input id="zwd-rag-question-static" name="question" placeholder="问任何关于钟伟达的问题…" maxlength="500">
+            <button type="submit">发送</button>
+          </form>
+          <p class="zwd-rag-privacy">AI 回答仅基于已审核的公开资料</p>
+        </div>
+      </div>
+      <div class="zwd-hero__visual">
+        <p class="zwd-hero__role"><strong>AI 应用交付</strong><span>/ FDE</span></p>
+        <img class="zwd-hero__portrait" src="/wp-content/themes/zwd-portfolio/assets/images/hero-portrait.png" alt="钟伟达手绘人物形象" width="1024" height="1536" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:group {"align":"full","className":"zwd-section zwd-projects","anchor":"projects","layout":{"type":"default"}} -->
+<section class="wp-block-group alignfull zwd-section zwd-projects" id="projects">
+  <!-- wp:shortcode -->[zwd_project_gallery]<!-- /wp:shortcode -->
+</section>
+<!-- /wp:group -->
+
+<!-- wp:html -->
+<section class="zwd-section zwd-about" id="about" aria-labelledby="zwd-about-title">
+  <div class="zwd-frame">
+    <div class="zwd-about__head">
+      <p class="zwd-kicker">03 / About</p>
+      <h2 id="zwd-about-title"><span>从工程现场到</span><span>AI 应用交付</span></h2>
+    </div>
+    <div class="zwd-about__story">
+      <p class="zwd-about__lead">我把工程领域形成的结构化分析、流程执行与质量意识，迁移到 AI 应用交付和知识库建设中。</p>
+      <div class="zwd-about__detail">
+        <p>我在莆田学院完成土木工程本科学习，并在厦门特房建工参与主体结构施工管理、工序检查和工程资料整理。现场经历让我习惯先明确目标与边界，再按流程推进，并持续关注质量与验收。</p>
+        <p>现在我重点投入 RAG 知识库、AI 工具应用与面向真实需求的项目交付，希望把复杂技术转化为能被使用、验证和持续改进的解决方案。</p>
+      </div>
+    </div>
+    <div class="zwd-capabilities">
+      <article class="zwd-capability"><span>01</span><h3>结构化分析</h3><p>将复杂问题拆解为可验证的环节。</p></article>
+      <article class="zwd-capability"><span>02</span><h3>流程与质量</h3><p>关注规范、边界、检查与验收标准。</p></article>
+      <article class="zwd-capability"><span>03</span><h3>RAG 与知识库</h3><p>实践资料治理、检索问答、引用与隐私隔离。</p></article>
+      <article class="zwd-capability"><span>04</span><h3>持续交付</h3><p>用可运行项目和可复核证据验证方案。</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="zwd-section zwd-resume" id="resume" aria-labelledby="zwd-resume-title">
+  <div class="zwd-frame">
+    <div class="zwd-resume__head">
+      <div><p class="zwd-kicker">04 / Resume</p><h2 class="zwd-section-title" id="zwd-resume-title">简历</h2></div>
+      <p>2026 届本科，目标方向为 AI 应用交付、FDE 与 Agent 开发；意向厦门，也可考虑合适的异地机会。</p>
+    </div>
+    <div class="zwd-resume__grid">
+      <div>
+        <p class="zwd-resume__label">EXPERIENCE</p>
+        <article><time>2024.06—2024.08</time><h3>施工员助理 · 厦门特房建工</h3><p>参与主体结构施工管理、工序检查、安全巡查、专项方案协作和工程资料整理，形成风险识别与闭环意识。</p></article>
+        <p class="zwd-resume__label">PROJECT PRACTICE</p>
+        <article><h3>个人求职知识库问答系统</h3><p>Markdown 资料治理、分层索引、增量更新、检索问答、引用与隐私隔离。</p></article>
+        <article><h3>世界杯百科智能问答 BOT</h3><p>Dify 知识库配置、资料预处理、检索策略、Prompt 优化和多场景问答调试。</p></article>
+      </div>
+      <aside class="zwd-resume__side">
+        <section><p class="zwd-resume__label">EDUCATION</p><h3>莆田学院</h3><p>土木工程 · 全日制本科<br>2022.09—2026.06</p></section>
+        <section><p class="zwd-resume__label">AI APPLICATION</p><p>RAG、Dify、Prompt Engineering、FastAPI、LangChain、Qdrant</p></section>
+        <section><p class="zwd-resume__label">WORKING STYLE</p><p>结构化分析 · 重视落地 · 过程清晰 · 持续学习</p></section>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="zwd-section zwd-contact" id="contact" aria-labelledby="zwd-contact-title">
+  <div class="zwd-frame">
+    <p class="zwd-kicker">05 / Contact</p>
+    <h2 class="zwd-contact__title" id="zwd-contact-title">一起把 AI 做到<strong>真实场景</strong>里？</h2>
+    <div class="zwd-contact-list" aria-label="联系方式">
+      <div class="zwd-contact-item"><span>01</span><div><small>微信号</small><strong>Tsss9318</strong></div></div>
+      <a class="zwd-contact-item" href="tel:15059779318"><span>02</span><div><small>手机号</small><strong>15059779318</strong></div><span>拨打 →</span></a>
+      <a class="zwd-contact-item" href="mailto:15059779318@163.com"><span>03</span><div><small>邮箱</small><strong>15059779318@163.com</strong></div><span>写邮件 →</span></a>
+      <a class="zwd-contact-item" href="https://github.com/luxiangyiz/tsss-portfolio-production" target="_blank" rel="noopener noreferrer"><span>04</span><div><small>GitHub</small><strong>luxiangyiz/tsss-portfolio-production</strong></div><span>查看 →</span></a>
+    </div>
+    <div class="zwd-footer-line"><span>招聘机会 / 项目合作 / 技术交流</span><span>© 2026 钟伟达 · <a href="/privacy/">隐私说明</a></span></div>
+  </div>
+</section>
+<!-- /wp:html -->
+BLOCKS;
+}
+
+function legacy_home_content(): string {
 	return <<<'BLOCKS'
 <!-- wp:html -->
 <section class="zwd-home-screen zwd-intro" aria-labelledby="zwd-home-title">
@@ -288,7 +483,7 @@ function home_content(): string {
     <h2 id="zwd-assistant-title">我是钟伟达的个人助手<span>你可以与我交谈，也可自行探索</span></h2>
     <p class="zwd-assistant__lead">了解我的经历、项目与能力</p>
     <div data-zwd-rag>
-      <form class="zwd-rag-form" action="/api/rag/public/ask" method="post">
+      <form class="zwd-rag-form" action="/public/ask" method="post">
         <label class="screen-reader-text" for="zwd-rag-question-static">向个人助手提问</label>
         <input id="zwd-rag-question-static" name="question" placeholder="问我任何关于经历、项目或能力的问题…" maxlength="500">
         <button type="submit">发送</button>
@@ -780,12 +975,8 @@ function seed_site(): array {
 		wp_delete_post( $obsolete_insights_page->ID, true );
 	}
 
-	$form_id = seed_contact_form();
-	$pages   = array(
+	$pages = array(
 		array( 'title' => '首页', 'slug' => 'home', 'order' => 0, 'content' => home_content() ),
-		array( 'title' => '关于我', 'slug' => 'about', 'order' => 1, 'content' => about_content() ),
-		array( 'title' => '简历', 'slug' => 'resume', 'order' => 3, 'content' => resume_content() ),
-		array( 'title' => '联系', 'slug' => 'contact', 'order' => 5, 'content' => contact_content( $form_id ) ),
 		array( 'title' => '隐私说明', 'slug' => 'privacy', 'order' => 99, 'content' => privacy_content() ),
 	);
 
@@ -807,18 +998,49 @@ function seed_site(): array {
 	update_option( 'show_on_front', 'page' );
 	update_option( 'page_on_front', $page_ids['home'] );
 	update_option( 'wp_page_for_privacy_policy', $page_ids['privacy'] );
+	migrate_single_page( false );
 	flush_rewrite_rules();
 
 	return array(
 		'pages'   => $page_ids,
 		'projects' => array( $worldcup_id, $jobrag_id ),
-		'form'     => $form_id,
+		'form'     => 0,
+	);
+}
+
+function migrate_single_page( bool $flush = true ): array {
+	$deleted_pages = 0;
+	foreach ( array( 'about', 'resume', 'contact' ) as $slug ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( $page instanceof \WP_Post ) {
+			wp_delete_post( $page->ID, true );
+			++$deleted_pages;
+		}
+	}
+
+	$deleted_forms = 0;
+	if ( post_type_exists( 'wpcf7_contact_form' ) ) {
+		$form = get_page_by_path( 'recruitment-contact', OBJECT, 'wpcf7_contact_form' );
+		if ( $form instanceof \WP_Post ) {
+			wp_delete_post( $form->ID, true );
+			++$deleted_forms;
+		}
+	}
+
+	update_option( 'zwd_single_page_migrated', VERSION );
+	if ( $flush ) {
+		flush_rewrite_rules();
+	}
+
+	return array(
+		'pages' => $deleted_pages,
+		'forms' => $deleted_forms,
 	);
 }
 
 function verify_site(): array {
 	$errors = array();
-	$pages  = array( 'home', 'about', 'resume', 'contact', 'privacy' );
+	$pages  = array( 'home', 'privacy' );
 
 	foreach ( $pages as $slug ) {
 		$page = get_page_by_path( $slug, OBJECT, 'page' );
@@ -834,8 +1056,14 @@ function verify_site(): array {
 			'posts_per_page' => -1,
 		)
 	);
-	if ( 5 !== count( $published_pages ) ) {
-		$errors[] = '当前公开页面数量应为 5，当前为 ' . count( $published_pages );
+	if ( 2 !== count( $published_pages ) ) {
+		$errors[] = '当前公开页面数量应为 2，当前为 ' . count( $published_pages );
+	}
+
+	foreach ( array( 'about', 'resume', 'contact' ) as $retired_slug ) {
+		if ( get_page_by_path( $retired_slug, OBJECT, 'page' ) instanceof \WP_Post ) {
+			$errors[] = '已下线页面仍然存在：' . $retired_slug;
+		}
 	}
 
 	$removed_insights_page = get_page_by_path( 'insights', OBJECT, 'page' );
@@ -861,8 +1089,8 @@ function verify_site(): array {
 			'posts_per_page' => -1,
 		)
 	);
-	if ( 2 !== count( $projects ) ) {
-		$errors[] = '公开项目数量应为 2，当前为 ' . count( $projects );
+	if ( count( $projects ) < 2 ) {
+		$errors[] = '已发布项目数量至少应为 2，当前为 ' . count( $projects );
 	}
 
 	if ( '0' !== (string) get_option( 'blog_public' ) ) {
@@ -882,7 +1110,7 @@ function verify_site(): array {
 	);
 	foreach ( $public_posts as $post ) {
 		$text = wp_strip_all_tags( $post->post_title . ' ' . $post->post_excerpt . ' ' . $post->post_content );
-		if ( 'contact' !== $post->post_name && preg_match( '/\b1[3-9]\d{9}\b/u', $text ) ) {
+		if ( 'home' !== $post->post_name && preg_match( '/\b1[3-9]\d{9}\b/u', $text ) ) {
 			$errors[] = sprintf( '疑似手机号出现在：%s', $post->post_title );
 		}
 		foreach ( $forbidden_patterns as $pattern => $label ) {
@@ -907,7 +1135,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	class CLI_Command {
 		public function seed(): void {
 			$result = seed_site();
-			\WP_CLI::success( sprintf( '已生成 %d 个页面、%d 个项目和联系表单。', count( $result['pages'] ), count( $result['projects'] ) ) );
+			\WP_CLI::success( sprintf( '已生成 %d 个页面和 %d 个项目。', count( $result['pages'] ), count( $result['projects'] ) ) );
 		}
 
 		public function verify(): void {
@@ -921,7 +1149,31 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
 
 			\WP_CLI::success( '网站结构、公开项目和基础隐私检查通过。' );
 		}
+
+		public function migrate_single_page(): void {
+			$result = migrate_single_page();
+			\WP_CLI::success(
+				sprintf(
+					'单页迁移完成：删除 %d 个旧页面、%d 个旧联系表单。',
+					$result['pages'],
+					$result['forms']
+				)
+			);
+		}
 	}
 
 	\WP_CLI::add_command( 'zwd', __NAMESPACE__ . '\\CLI_Command' );
+	\WP_CLI::add_command(
+		'zwd migrate-single-page',
+		static function (): void {
+			$result = migrate_single_page();
+			\WP_CLI::success(
+				sprintf(
+					'单页迁移完成：删除 %d 个旧页面、%d 个旧联系表单。',
+					$result['pages'],
+					$result['forms']
+				)
+			);
+		}
+	);
 }

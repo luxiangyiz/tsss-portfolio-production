@@ -2,582 +2,532 @@
     "version":  "2.0",
     "source_project":  "project-015-personal-knowledge-assistant",
     "target_project":  "project-016-zwd-portfolio-production",
-    "total_files":  115,
+    "total_files":  105,
     "files":  [
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/常见问答.md",
-                      "sha256":  "dab43b2d94bb62444199b4a8491c8bbc135b124e59fd83820449ca2610410708",
-                      "target_path":  "public-content/个人介绍/常见问答.md"
+                      "target_path":  "public-content/个人介绍/常见问答.md",
+                      "sha256":  "dab43b2d94bb62444199b4a8491c8bbc135b124e59fd83820449ca2610410708"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/个人介绍.md",
-                      "sha256":  "e8af9aa996a534235d9ec5fce830cff9e345ed22b8113e4fac1cfc0ba6cc6b20",
-                      "target_path":  "public-content/个人介绍/个人介绍.md"
+                      "target_path":  "public-content/个人介绍/个人介绍.md",
+                      "sha256":  "e8af9aa996a534235d9ec5fce830cff9e345ed22b8113e4fac1cfc0ba6cc6b20"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/公开简历.md",
-                      "sha256":  "fa4fb3ac885891d0976fd877bc28a3eb09dbc6e658c44e10e1b08cee2438dd27",
-                      "target_path":  "public-content/个人介绍/公开简历.md"
+                      "target_path":  "public-content/个人介绍/公开简历.md",
+                      "sha256":  "fa4fb3ac885891d0976fd877bc28a3eb09dbc6e658c44e10e1b08cee2438dd27"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/技能清单.md",
-                      "sha256":  "054f17f9aae2897760d9de9592d05044616f44b36f2bb3416920dd4b8b907e50",
-                      "target_path":  "public-content/个人介绍/技能清单.md"
+                      "target_path":  "public-content/个人介绍/技能清单.md",
+                      "sha256":  "054f17f9aae2897760d9de9592d05044616f44b36f2bb3416920dd4b8b907e50"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/教育与实习经历.md",
-                      "sha256":  "1579c43c3690336c9fa6338c5aa01ccbac89b1905de9ffe36fdb15ac37978ae4",
-                      "target_path":  "public-content/个人介绍/教育与实习经历.md"
+                      "target_path":  "public-content/个人介绍/教育与实习经历.md",
+                      "sha256":  "1579c43c3690336c9fa6338c5aa01ccbac89b1905de9ffe36fdb15ac37978ae4"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/联系方式.md",
-                      "sha256":  "7435672213f968619329dd04f2cc27ba189b891ce1b3ef86be0144992671c46b",
-                      "target_path":  "public-content/个人介绍/联系方式.md"
+                      "target_path":  "public-content/个人介绍/联系方式.md",
+                      "sha256":  "7435672213f968619329dd04f2cc27ba189b891ce1b3ef86be0144992671c46b"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/个人介绍/兴趣爱好与求职意向.md",
-                      "sha256":  "9c38ff08f62b584de22fa503122d291a7ca21ee75a37619dc8c56cac8c90f2e6",
-                      "target_path":  "public-content/个人介绍/兴趣爱好与求职意向.md"
+                      "target_path":  "public-content/个人介绍/兴趣爱好与求职意向.md",
+                      "sha256":  "9c38ff08f62b584de22fa503122d291a7ca21ee75a37619dc8c56cac8c90f2e6"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/项目展示/AI求职知识库RAG.md",
-                      "sha256":  "8e61c8ec150f55de29f59640f45099214ec963e7f18ac64b6323d602783d80b9",
-                      "target_path":  "public-content/项目展示/AI求职知识库RAG.md"
+                      "target_path":  "public-content/项目展示/AI求职知识库RAG.md",
+                      "sha256":  "8e61c8ec150f55de29f59640f45099214ec963e7f18ac64b6323d602783d80b9"
                   },
                   {
                       "source_path":  "ai-job-knowledge-base/12-网站公开候选/项目展示/世界杯百科智能问答BOT.md",
-                      "sha256":  "24bae372bff336bb97d592cee9dda319a21abd0589a5cdf34033947a9535a54f",
-                      "target_path":  "public-content/项目展示/世界杯百科智能问答BOT.md"
+                      "target_path":  "public-content/项目展示/世界杯百科智能问答BOT.md",
+                      "sha256":  "24bae372bff336bb97d592cee9dda319a21abd0589a5cdf34033947a9535a54f"
                   },
                   {
                       "source_path":  "src/rag_app/__init__.py",
-                      "sha256":  "314b1be073cfe73608b3da90b2aebcc993cf799015ab75752ccda988665aba57",
-                      "target_path":  "rag-api/rag_app/__init__.py"
+                      "target_path":  "rag-api/rag_app/__init__.py",
+                      "sha256":  "314b1be073cfe73608b3da90b2aebcc993cf799015ab75752ccda988665aba57"
                   },
                   {
                       "source_path":  "src/rag_app/api/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/api/__init__.py"
+                      "target_path":  "rag-api/rag_app/api/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/api/ask.py",
-                      "sha256":  "214058f6e9c38985d9fe221141c3105655edfbcaefe8ba0b5ba99e00ad6d3211",
-                      "target_path":  "rag-api/rag_app/api/ask.py"
+                      "target_path":  "rag-api/rag_app/api/ask.py",
+                      "sha256":  "214058f6e9c38985d9fe221141c3105655edfbcaefe8ba0b5ba99e00ad6d3211"
                   },
                   {
                       "source_path":  "src/rag_app/api/health.py",
-                      "sha256":  "b0d26b665ff19e8cb6fe39721463dbc426e8ba84db469c2e8343d5b92fd8bdd2",
-                      "target_path":  "rag-api/rag_app/api/health.py"
+                      "target_path":  "rag-api/rag_app/api/health.py",
+                      "sha256":  "b0d26b665ff19e8cb6fe39721463dbc426e8ba84db469c2e8343d5b92fd8bdd2"
                   },
                   {
                       "source_path":  "src/rag_app/api/ingest.py",
-                      "sha256":  "baa1162276abe856d69ddb19bdbcbd4417fc909d516746850e1f3386d36aed5f",
-                      "target_path":  "rag-api/rag_app/api/ingest.py"
+                      "target_path":  "rag-api/rag_app/api/ingest.py",
+                      "sha256":  "baa1162276abe856d69ddb19bdbcbd4417fc909d516746850e1f3386d36aed5f"
                   },
                   {
                       "source_path":  "src/rag_app/api/public.py",
-                      "sha256":  "9ed2ee66c018e8949c710be5d030537b0d4ce17e025d6e677eff023131e127c8",
-                      "target_path":  "rag-api/rag_app/api/public.py"
+                      "target_path":  "rag-api/rag_app/api/public.py",
+                      "sha256":  "9ed2ee66c018e8949c710be5d030537b0d4ce17e025d6e677eff023131e127c8"
                   },
                   {
                       "source_path":  "src/rag_app/api/search.py",
-                      "sha256":  "6ebc6c18eb45ffaae1ef436a183898fe759211f5e0f565d5daac6da00fa5a329",
-                      "target_path":  "rag-api/rag_app/api/search.py"
+                      "target_path":  "rag-api/rag_app/api/search.py",
+                      "sha256":  "6ebc6c18eb45ffaae1ef436a183898fe759211f5e0f565d5daac6da00fa5a329"
                   },
                   {
                       "source_path":  "src/rag_app/citations/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/citations/__init__.py"
+                      "target_path":  "rag-api/rag_app/citations/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/citations/builder.py",
-                      "sha256":  "5f15ee1f2e1b2ffdb09aa9da874bd80e27463f25d26ff5bbf9610322c534953c",
-                      "target_path":  "rag-api/rag_app/citations/builder.py"
+                      "target_path":  "rag-api/rag_app/citations/builder.py",
+                      "sha256":  "5f15ee1f2e1b2ffdb09aa9da874bd80e27463f25d26ff5bbf9610322c534953c"
                   },
                   {
                       "source_path":  "src/rag_app/citations/validator.py",
-                      "sha256":  "42bce8110d2deb30b69cf21e011c8609c4a5ad3cea050ce96c875d0c1f08071c",
-                      "target_path":  "rag-api/rag_app/citations/validator.py"
+                      "target_path":  "rag-api/rag_app/citations/validator.py",
+                      "sha256":  "42bce8110d2deb30b69cf21e011c8609c4a5ad3cea050ce96c875d0c1f08071c"
                   },
                   {
                       "source_path":  "src/rag_app/core/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/core/__init__.py"
+                      "target_path":  "rag-api/rag_app/core/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/core/config.py",
-                      "sha256":  "0c399810e34e97f26f764e1886ce3e30362d0375eb7fa7cacf3a2ac46fa28341",
-                      "target_path":  "rag-api/rag_app/core/config.py"
+                      "target_path":  "rag-api/rag_app/core/config.py",
+                      "sha256":  "0c399810e34e97f26f764e1886ce3e30362d0375eb7fa7cacf3a2ac46fa28341"
                   },
                   {
                       "source_path":  "src/rag_app/core/exceptions.py",
-                      "sha256":  "2c86bd17f9cbea0251a0f8079b7fe9ab042e0b9b2f04820900a2a308f50deae6",
-                      "target_path":  "rag-api/rag_app/core/exceptions.py"
+                      "target_path":  "rag-api/rag_app/core/exceptions.py",
+                      "sha256":  "2c86bd17f9cbea0251a0f8079b7fe9ab042e0b9b2f04820900a2a308f50deae6"
                   },
                   {
                       "source_path":  "src/rag_app/core/logging.py",
-                      "sha256":  "c516c966ea4a5ebb5688d96a3f330fa626c86b849e50466dd9757bc03ea4ed84",
-                      "target_path":  "rag-api/rag_app/core/logging.py"
+                      "target_path":  "rag-api/rag_app/core/logging.py",
+                      "sha256":  "c516c966ea4a5ebb5688d96a3f330fa626c86b849e50466dd9757bc03ea4ed84"
                   },
                   {
                       "source_path":  "src/rag_app/core/security.py",
-                      "sha256":  "b9117d3799f3ea1cfedc261d610df8033afad3f9ef0ee2dacb8615f326443cd1",
-                      "target_path":  "rag-api/rag_app/core/security.py"
+                      "target_path":  "rag-api/rag_app/core/security.py",
+                      "sha256":  "b9117d3799f3ea1cfedc261d610df8033afad3f9ef0ee2dacb8615f326443cd1"
                   },
                   {
                       "source_path":  "src/rag_app/demo/__init__.py",
-                      "sha256":  "56c8bd2706980fa8db157bfa378bc473761835291036e90682b56952142c7ff6",
-                      "target_path":  "rag-api/rag_app/demo/__init__.py"
+                      "target_path":  "rag-api/rag_app/demo/__init__.py",
+                      "sha256":  "56c8bd2706980fa8db157bfa378bc473761835291036e90682b56952142c7ff6"
                   },
                   {
                       "source_path":  "src/rag_app/demo/dependencies.py",
-                      "sha256":  "3acad2c16452c0d36449ed0d92990e3f752920b5e4d57a9cf2c10752b51cd930",
-                      "target_path":  "rag-api/rag_app/demo/dependencies.py"
+                      "target_path":  "rag-api/rag_app/demo/dependencies.py",
+                      "sha256":  "3acad2c16452c0d36449ed0d92990e3f752920b5e4d57a9cf2c10752b51cd930"
                   },
                   {
                       "source_path":  "src/rag_app/demo/page.py",
-                      "sha256":  "9f34a80026a87aef4a1da9af038a6e3063ab4610dfa3eda15ab8e3520da14ed8",
-                      "target_path":  "rag-api/rag_app/demo/page.py"
+                      "target_path":  "rag-api/rag_app/demo/page.py",
+                      "sha256":  "9f34a80026a87aef4a1da9af038a6e3063ab4610dfa3eda15ab8e3520da14ed8"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/knowledge/__init__.py"
+                      "target_path":  "rag-api/rag_app/knowledge/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/chunk_id.py",
-                      "sha256":  "1f5018ee57972f2ad5276dbfd4f8627ac29c8ffedb323f92f9310cc945c27dc3",
-                      "target_path":  "rag-api/rag_app/knowledge/chunk_id.py"
+                      "target_path":  "rag-api/rag_app/knowledge/chunk_id.py",
+                      "sha256":  "1f5018ee57972f2ad5276dbfd4f8627ac29c8ffedb323f92f9310cc945c27dc3"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/inclusion_policy.py",
-                      "sha256":  "0143ebd3a688d2b9599aa892f8089f7a65ebee3a2eb6a684ce09b77fd84849a7",
-                      "target_path":  "rag-api/rag_app/knowledge/inclusion_policy.py"
+                      "target_path":  "rag-api/rag_app/knowledge/inclusion_policy.py",
+                      "sha256":  "0143ebd3a688d2b9599aa892f8089f7a65ebee3a2eb6a684ce09b77fd84849a7"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/manifest.py",
-                      "sha256":  "3766cc79c465bfb842c2a18f20470356c67daa266c832e870fafd0c054604867",
-                      "target_path":  "rag-api/rag_app/knowledge/manifest.py"
+                      "target_path":  "rag-api/rag_app/knowledge/manifest.py",
+                      "sha256":  "3766cc79c465bfb842c2a18f20470356c67daa266c832e870fafd0c054604867"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/markdown_parser.py",
-                      "sha256":  "ac2f49fc712aeccdf973b4ea7e674aab733099fd1c750650a74afb8cae01ae20",
-                      "target_path":  "rag-api/rag_app/knowledge/markdown_parser.py"
+                      "target_path":  "rag-api/rag_app/knowledge/markdown_parser.py",
+                      "sha256":  "ac2f49fc712aeccdf973b4ea7e674aab733099fd1c750650a74afb8cae01ae20"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/metadata_validator.py",
-                      "sha256":  "e3abce7f9d4ba2ede759a2d08f18aee0288cc744589d838c5352cbef306ee10e",
-                      "target_path":  "rag-api/rag_app/knowledge/metadata_validator.py"
+                      "target_path":  "rag-api/rag_app/knowledge/metadata_validator.py",
+                      "sha256":  "e3abce7f9d4ba2ede759a2d08f18aee0288cc744589d838c5352cbef306ee10e"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/privacy_router.py",
-                      "sha256":  "2337e6b6b6c2a29d471878fa1ea1a2090dbbaf804e931ad410a338d685a20b7e",
-                      "target_path":  "rag-api/rag_app/knowledge/privacy_router.py"
+                      "target_path":  "rag-api/rag_app/knowledge/privacy_router.py",
+                      "sha256":  "2337e6b6b6c2a29d471878fa1ea1a2090dbbaf804e931ad410a338d685a20b7e"
                   },
                   {
                       "source_path":  "src/rag_app/knowledge/scanner.py",
-                      "sha256":  "4bbd499d9139682a05742d8cda764c1758b4d1163dfa45acffcab1926ea8f1d9",
-                      "target_path":  "rag-api/rag_app/knowledge/scanner.py"
+                      "target_path":  "rag-api/rag_app/knowledge/scanner.py",
+                      "sha256":  "4bbd499d9139682a05742d8cda764c1758b4d1163dfa45acffcab1926ea8f1d9"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/langchain_components/__init__.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/chat_model.py",
-                      "sha256":  "02021a38a57d7f0a03f7b251824e14c423b71f38665b906cbf43fac79a6a642e",
-                      "target_path":  "rag-api/rag_app/langchain_components/chat_model.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/chat_model.py",
+                      "sha256":  "02021a38a57d7f0a03f7b251824e14c423b71f38665b906cbf43fac79a6a642e"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/document_factory.py",
-                      "sha256":  "00990bccd6ed20a13b5db5998b0fb2c225a0a2185a9eb5ccca806b3d56932db3",
-                      "target_path":  "rag-api/rag_app/langchain_components/document_factory.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/document_factory.py",
+                      "sha256":  "00990bccd6ed20a13b5db5998b0fb2c225a0a2185a9eb5ccca806b3d56932db3"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/embeddings.py",
-                      "sha256":  "313da274a4c502e164a460b58af30e9a67e8ce23593a10b557d7d1268eabc51a",
-                      "target_path":  "rag-api/rag_app/langchain_components/embeddings.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/embeddings.py",
+                      "sha256":  "313da274a4c502e164a460b58af30e9a67e8ce23593a10b557d7d1268eabc51a"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/prompts.py",
-                      "sha256":  "d0871e56bdd1e4852993f083e7c99de9d56ffdc464b35248d65f276292b29135",
-                      "target_path":  "rag-api/rag_app/langchain_components/prompts.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/prompts.py",
+                      "sha256":  "d0871e56bdd1e4852993f083e7c99de9d56ffdc464b35248d65f276292b29135"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/retriever.py",
-                      "sha256":  "21400db9c242edf53f1540c5d7dde54321e25c5890b4f37e568e9eceda014ec0",
-                      "target_path":  "rag-api/rag_app/langchain_components/retriever.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/retriever.py",
+                      "sha256":  "21400db9c242edf53f1540c5d7dde54321e25c5890b4f37e568e9eceda014ec0"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/splitter.py",
-                      "sha256":  "bd8d54ea8f107a37318fc0e59606b61df113244a516cb96b129c37da16b037b6",
-                      "target_path":  "rag-api/rag_app/langchain_components/splitter.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/splitter.py",
+                      "sha256":  "bd8d54ea8f107a37318fc0e59606b61df113244a516cb96b129c37da16b037b6"
                   },
                   {
                       "source_path":  "src/rag_app/langchain_components/vector_store.py",
-                      "sha256":  "918b5f5f206d910247033c14ab0da12306bdfac5d9c7bdd0c9f1fd6c48507693",
-                      "target_path":  "rag-api/rag_app/langchain_components/vector_store.py"
+                      "target_path":  "rag-api/rag_app/langchain_components/vector_store.py",
+                      "sha256":  "918b5f5f206d910247033c14ab0da12306bdfac5d9c7bdd0c9f1fd6c48507693"
                   },
                   {
                       "source_path":  "src/rag_app/main.py",
-                      "sha256":  "54798f203ab75fa8cbaa05b53d691bd5d0758b5fe4c23d0fdec1e809ac9087b8",
-                      "target_path":  "rag-api/rag_app/main.py"
+                      "target_path":  "rag-api/rag_app/main.py",
+                      "sha256":  "54798f203ab75fa8cbaa05b53d691bd5d0758b5fe4c23d0fdec1e809ac9087b8"
                   },
                   {
                       "source_path":  "src/rag_app/models/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/models/__init__.py"
+                      "target_path":  "rag-api/rag_app/models/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/models/documents.py",
-                      "sha256":  "6ec77efd71f05e05863525f066249e7add115a226300bd728b333829351e296c",
-                      "target_path":  "rag-api/rag_app/models/documents.py"
+                      "target_path":  "rag-api/rag_app/models/documents.py",
+                      "sha256":  "6ec77efd71f05e05863525f066249e7add115a226300bd728b333829351e296c"
                   },
                   {
                       "source_path":  "src/rag_app/models/requests.py",
-                      "sha256":  "d91d27c0b56a0efbca8f587d65f6d4d285425d8fd5f4aa38de9c5a58d4d3ddee",
-                      "target_path":  "rag-api/rag_app/models/requests.py"
+                      "target_path":  "rag-api/rag_app/models/requests.py",
+                      "sha256":  "d91d27c0b56a0efbca8f587d65f6d4d285425d8fd5f4aa38de9c5a58d4d3ddee"
                   },
                   {
                       "source_path":  "src/rag_app/models/responses.py",
-                      "sha256":  "bd24385781f12379df25f63d05b483f983fd0200c91d6f17ef48eed95d3e134c",
-                      "target_path":  "rag-api/rag_app/models/responses.py"
+                      "target_path":  "rag-api/rag_app/models/responses.py",
+                      "sha256":  "bd24385781f12379df25f63d05b483f983fd0200c91d6f17ef48eed95d3e134c"
                   },
                   {
                       "source_path":  "src/rag_app/public_main.py",
-                      "sha256":  "2cb496856945e5eb4cd915308e04bd6aea4ad11bf8da4348f39ca78025334816",
-                      "target_path":  "rag-api/rag_app/public_main.py"
+                      "target_path":  "rag-api/rag_app/public_main.py",
+                      "sha256":  "2cb496856945e5eb4cd915308e04bd6aea4ad11bf8da4348f39ca78025334816"
                   },
                   {
                       "source_path":  "src/rag_app/services/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "rag-api/rag_app/services/__init__.py"
+                      "target_path":  "rag-api/rag_app/services/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "src/rag_app/services/answer_service.py",
-                      "sha256":  "243e230a5233e01106c8238a87ab13499a5b946b5e25ac33b8ff7b0aa739aef0",
-                      "target_path":  "rag-api/rag_app/services/answer_service.py"
+                      "target_path":  "rag-api/rag_app/services/answer_service.py",
+                      "sha256":  "243e230a5233e01106c8238a87ab13499a5b946b5e25ac33b8ff7b0aa739aef0"
                   },
                   {
                       "source_path":  "src/rag_app/services/evidence_policy.py",
-                      "sha256":  "dc590a480a54ffadb4ef64f38fb34ddf08ad79ab61d57dbef57f01caf00bb66a",
-                      "target_path":  "rag-api/rag_app/services/evidence_policy.py"
+                      "target_path":  "rag-api/rag_app/services/evidence_policy.py",
+                      "sha256":  "dc590a480a54ffadb4ef64f38fb34ddf08ad79ab61d57dbef57f01caf00bb66a"
                   },
                   {
                       "source_path":  "src/rag_app/services/ingestion_service.py",
-                      "sha256":  "65bb9e0659cf619739ff82cb8a0edfa92dea4e6fa28853b00cdbc125cf16afbd",
-                      "target_path":  "rag-api/rag_app/services/ingestion_service.py"
+                      "target_path":  "rag-api/rag_app/services/ingestion_service.py",
+                      "sha256":  "65bb9e0659cf619739ff82cb8a0edfa92dea4e6fa28853b00cdbc125cf16afbd"
                   },
                   {
                       "source_path":  "src/rag_app/services/search_service.py",
-                      "sha256":  "8093e4279438be85e3ce2e058143c9719918f247130398892d28f5e43eedc819",
-                      "target_path":  "rag-api/rag_app/services/search_service.py"
+                      "target_path":  "rag-api/rag_app/services/search_service.py",
+                      "sha256":  "8093e4279438be85e3ce2e058143c9719918f247130398892d28f5e43eedc819"
                   },
                   {
                       "source_path":  "requirements.txt",
-                      "sha256":  "372dbc64af9cbdc41b81da5576915f064c8686e8ce3812c7409642551c3b1d24",
-                      "target_path":  "rag-api/requirements.txt"
+                      "target_path":  "rag-api/requirements.txt",
+                      "sha256":  "372dbc64af9cbdc41b81da5576915f064c8686e8ce3812c7409642551c3b1d24"
                   },
                   {
                       "source_path":  "tests/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "tests/__init__.py"
+                      "target_path":  "tests/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "tests/conftest.py",
-                      "sha256":  "dab8a8fa652f3c2b020351b1c0237068e0209b88210eb093e98af656ed24fad0",
-                      "target_path":  "tests/conftest.py"
+                      "target_path":  "tests/conftest.py",
+                      "sha256":  "dab8a8fa652f3c2b020351b1c0237068e0209b88210eb093e98af656ed24fad0"
                   },
                   {
                       "source_path":  "tests/demo/__init__.py",
-                      "sha256":  "80836f617cbbcfa240d45721272ec90e63548fd427e69d2ea679f8505689b9b6",
-                      "target_path":  "tests/demo/__init__.py"
+                      "target_path":  "tests/demo/__init__.py",
+                      "sha256":  "80836f617cbbcfa240d45721272ec90e63548fd427e69d2ea679f8505689b9b6"
                   },
                   {
                       "source_path":  "tests/demo/conftest.py",
-                      "sha256":  "d18c6214b81c9c57203a05d8a4a75cb7ac14607f506fe76258fac40395c7c826",
-                      "target_path":  "tests/demo/conftest.py"
+                      "target_path":  "tests/demo/conftest.py",
+                      "sha256":  "d18c6214b81c9c57203a05d8a4a75cb7ac14607f506fe76258fac40395c7c826"
                   },
                   {
                       "source_path":  "tests/demo/test_demo_config.py",
-                      "sha256":  "5cd2c52ef8e974810ff2482e8973424d1fa4b32c1fdfb8a88ff3e4cb0017f124",
-                      "target_path":  "tests/demo/test_demo_config.py"
+                      "target_path":  "tests/demo/test_demo_config.py",
+                      "sha256":  "5cd2c52ef8e974810ff2482e8973424d1fa4b32c1fdfb8a88ff3e4cb0017f124"
                   },
                   {
                       "source_path":  "tests/demo/test_demo_dependencies.py",
-                      "sha256":  "36975f5af4b5252fc143f8c29e43e84817b750dc4d028d70efcb5177bbf4f9e1",
-                      "target_path":  "tests/demo/test_demo_dependencies.py"
+                      "target_path":  "tests/demo/test_demo_dependencies.py",
+                      "sha256":  "36975f5af4b5252fc143f8c29e43e84817b750dc4d028d70efcb5177bbf4f9e1"
                   },
                   {
                       "source_path":  "tests/demo/test_demo_page.py",
-                      "sha256":  "deb9b62a199876e0c34d299488d6b18b8e69c8388346338294321bedd39b30e6",
-                      "target_path":  "tests/demo/test_demo_page.py"
+                      "target_path":  "tests/demo/test_demo_page.py",
+                      "sha256":  "deb9b62a199876e0c34d299488d6b18b8e69c8388346338294321bedd39b30e6"
                   },
                   {
                       "source_path":  "tests/demo/test_demo_scripts.py",
-                      "sha256":  "bb20f4992dc55dfea55c2efe5836cb037aa9ca3a99c91127df1c394fb12c345c",
-                      "target_path":  "tests/demo/test_demo_scripts.py"
+                      "target_path":  "tests/demo/test_demo_scripts.py",
+                      "sha256":  "bb20f4992dc55dfea55c2efe5836cb037aa9ca3a99c91127df1c394fb12c345c"
                   },
                   {
                       "source_path":  "tests/evaluation/__init__.py",
-                      "sha256":  "89aebf60d12be613127b3e5bb96d8678bf82a46e7c91a577ed4dffa70bb766d3",
-                      "target_path":  "tests/evaluation/__init__.py"
+                      "target_path":  "tests/evaluation/__init__.py",
+                      "sha256":  "89aebf60d12be613127b3e5bb96d8678bf82a46e7c91a577ed4dffa70bb766d3"
                   },
                   {
                       "source_path":  "tests/evaluation/eval_questions.py",
-                      "sha256":  "52586fff26585d36a9aff022dd18612f3f946c7f1f347486890cb33c23d2f6fe",
-                      "target_path":  "tests/evaluation/eval_questions.py"
+                      "target_path":  "tests/evaluation/eval_questions.py",
+                      "sha256":  "52586fff26585d36a9aff022dd18612f3f946c7f1f347486890cb33c23d2f6fe"
                   },
                   {
                       "source_path":  "tests/evaluation/run_eval.py",
-                      "sha256":  "83c2ff1ea36c4fdf19cb0e86502df0e3dd58b80f70e0fad7e808c5500a64d744",
-                      "target_path":  "tests/evaluation/run_eval.py"
+                      "target_path":  "tests/evaluation/run_eval.py",
+                      "sha256":  "83c2ff1ea36c4fdf19cb0e86502df0e3dd58b80f70e0fad7e808c5500a64d744"
                   },
                   {
                       "source_path":  "tests/fixtures/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "tests/fixtures/__init__.py"
+                      "target_path":  "tests/fixtures/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "tests/fixtures/fake_chat_model.py",
-                      "sha256":  "8378264e11196e28483ceacdf79b87fd6666d9b95daa240f1a9ce639d004b58b",
-                      "target_path":  "tests/fixtures/fake_chat_model.py"
+                      "target_path":  "tests/fixtures/fake_chat_model.py",
+                      "sha256":  "8378264e11196e28483ceacdf79b87fd6666d9b95daa240f1a9ce639d004b58b"
                   },
                   {
                       "source_path":  "tests/fixtures/fake_embeddings.py",
-                      "sha256":  "700a0fa026ca9957d73d24ae5ca9792745c4fb585f50a3d86ee82ccd4eaf65fe",
-                      "target_path":  "tests/fixtures/fake_embeddings.py"
+                      "target_path":  "tests/fixtures/fake_embeddings.py",
+                      "sha256":  "700a0fa026ca9957d73d24ae5ca9792745c4fb585f50a3d86ee82ccd4eaf65fe"
                   },
                   {
                       "source_path":  "tests/integration/__init__.py",
-                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-                      "target_path":  "tests/integration/__init__.py"
+                      "target_path":  "tests/integration/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
                   },
                   {
                       "source_path":  "tests/integration/test_api.py",
-                      "sha256":  "95ee7320bca320f4ff8089c34ae99341c1e24e03702fe97846230b214d123066",
-                      "target_path":  "tests/integration/test_api.py"
+                      "target_path":  "tests/integration/test_api.py",
+                      "sha256":  "95ee7320bca320f4ff8089c34ae99341c1e24e03702fe97846230b214d123066"
                   },
                   {
                       "source_path":  "tests/integration/test_incremental.py",
-                      "sha256":  "0a79d1e6627a9cf58dd4817a3133ba5014f6f5f3cb36c63db7b6c3e50aed381c",
-                      "target_path":  "tests/integration/test_incremental.py"
+                      "target_path":  "tests/integration/test_incremental.py",
+                      "sha256":  "0a79d1e6627a9cf58dd4817a3133ba5014f6f5f3cb36c63db7b6c3e50aed381c"
                   },
                   {
                       "source_path":  "tests/integration/test_manifest_v2_incremental.py",
-                      "sha256":  "f670dcc4e500513cb406ede99020d35c1f292ab33793e416533ee7dd58dc9cf7",
-                      "target_path":  "tests/integration/test_manifest_v2_incremental.py"
+                      "target_path":  "tests/integration/test_manifest_v2_incremental.py",
+                      "sha256":  "f670dcc4e500513cb406ede99020d35c1f292ab33793e416533ee7dd58dc9cf7"
                   },
                   {
                       "source_path":  "tests/integration/test_qdrant_real.py",
-                      "sha256":  "8618016c553e69c6640af7806fbe0798e2596acc9a8927d644bcbeddb7c03637",
-                      "target_path":  "tests/integration/test_qdrant_real.py"
+                      "target_path":  "tests/integration/test_qdrant_real.py",
+                      "sha256":  "8618016c553e69c6640af7806fbe0798e2596acc9a8927d644bcbeddb7c03637"
                   },
                   {
                       "source_path":  "tests/integration/test_scoped_ingest.py",
-                      "sha256":  "810fd663e053253809b30ca3619d856f0c2a3a1a187c4061c0d168d2c512775e",
-                      "target_path":  "tests/integration/test_scoped_ingest.py"
+                      "target_path":  "tests/integration/test_scoped_ingest.py",
+                      "sha256":  "810fd663e053253809b30ca3619d856f0c2a3a1a187c4061c0d168d2c512775e"
                   },
                   {
                       "source_path":  "tests/privacy/test_privacy_isolation.py",
-                      "sha256":  "5688d02c0cf73c9ce0032fae8bb0b60a7e916c6909f945095355ccc5d27261b5",
-                      "target_path":  "tests/privacy/test_privacy_isolation.py"
+                      "target_path":  "tests/privacy/test_privacy_isolation.py",
+                      "sha256":  "5688d02c0cf73c9ce0032fae8bb0b60a7e916c6909f945095355ccc5d27261b5"
                   },
                   {
                       "source_path":  "tests/unit/test_knowledge.py",
-                      "sha256":  "fe3916414f79bbcb9e8064375c1c900dc13b4562083a71c96dcdda02135461c7",
-                      "target_path":  "tests/unit/test_knowledge.py"
+                      "target_path":  "tests/unit/test_knowledge.py",
+                      "sha256":  "fe3916414f79bbcb9e8064375c1c900dc13b4562083a71c96dcdda02135461c7"
                   },
                   {
                       "source_path":  "tests/unit/test_manifest_v1_migration.py",
-                      "sha256":  "ff6929d349631ad5a3c773d210430c35e1a15e79273fe62ed83620507031c1ea",
-                      "target_path":  "tests/unit/test_manifest_v1_migration.py"
+                      "target_path":  "tests/unit/test_manifest_v1_migration.py",
+                      "sha256":  "ff6929d349631ad5a3c773d210430c35e1a15e79273fe62ed83620507031c1ea"
                   },
                   {
                       "source_path":  "tests/unit/test_manifest_v2.py",
-                      "sha256":  "0fcb26be7e4c8db5299a1fba45542375f71a3c60f578c6ddfdfbb2688025a65d",
-                      "target_path":  "tests/unit/test_manifest_v2.py"
+                      "target_path":  "tests/unit/test_manifest_v2.py",
+                      "sha256":  "0fcb26be7e4c8db5299a1fba45542375f71a3c60f578c6ddfdfbb2688025a65d"
                   },
                   {
                       "source_path":  "tests/unit/test_public_answer_cleaning.py",
-                      "sha256":  "f9c0803f6ff749d786cdd798a308401e732844a836dbfe909d3b3b5c585bec4e",
-                      "target_path":  "tests/unit/test_public_answer_cleaning.py"
+                      "target_path":  "tests/unit/test_public_answer_cleaning.py",
+                      "sha256":  "f9c0803f6ff749d786cdd798a308401e732844a836dbfe909d3b3b5c585bec4e"
                   },
                   {
                       "source_path":  "tests/verify_fixes.py",
-                      "sha256":  "b773b26be8b8b9cdfbcf8b44d39e3c4b267824fa1b1f84f6fd834bb0202c1218",
-                      "target_path":  "tests/verify_fixes.py"
+                      "target_path":  "tests/verify_fixes.py",
+                      "sha256":  "b773b26be8b8b9cdfbcf8b44d39e3c4b267824fa1b1f84f6fd834bb0202c1218"
                   },
                   {
                       "source_path":  "tests/verify_imports.py",
-                      "sha256":  "00273a55bf8e3eafdb5f3146e0c3fde4638031f30922f1604b8c54a95d8949ae",
-                      "target_path":  "tests/verify_imports.py"
+                      "target_path":  "tests/verify_imports.py",
+                      "sha256":  "00273a55bf8e3eafdb5f3146e0c3fde4638031f30922f1604b8c54a95d8949ae"
                   },
                   {
                       "source_path":  "tests/wordpress/test_wordpress_files.py",
-                      "sha256":  "b559a547d1ff610753d161c5244e3859f04c65f8cae735d8e6f3046f318583a4",
-                      "target_path":  "tests/wordpress/test_wordpress_files.py"
+                      "target_path":  "tests/wordpress/test_wordpress_files.py",
+                      "sha256":  "8f1638b0e4deb020b571f992d3d25916ebb7cb9332a9781d9ec7ace05ce49605"
                   },
                   {
                       "source_path":  "src/wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
-                      "sha256":  "ada58db048ac968cebb6190c473ca34634358a278bb49e6d7762ef2484d1cc7b",
-                      "target_path":  "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/build/about.css",
-                      "sha256":  "66cfa5a3d14b6d97e028297851864ca28abedce6a122dd6171bf47ca2a551be6",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/about.css"
+                      "target_path":  "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",
+                      "sha256":  "e2ef2cadd9c33f40678d378e65d2a14573de40580088bbf1b19e8b055a27c022"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/build/homepage.css",
-                      "sha256":  "6b14003a6ae1b82f9d4b2895b3f6e31089cddcc5d3987f60ee1f1656bcae057e",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/homepage.css"
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/homepage.css",
+                      "sha256":  "04dfbd22de42469c44c5c26794782f4cf39f41a34382ed8845654ac421f008f1"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/build/homepage.js",
-                      "sha256":  "5d72414214ab922fa2c633275cb8774f54b7f519185fe61f3c8fbfec9896c34d",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/homepage.js"
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/homepage.js",
+                      "sha256":  "ce60b199cba20b289784490aca7956fde5846df0bc67f764dd597f3e398a844c"
                   },
                   {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/build/project-carousel.js",
-                      "sha256":  "1ab9fd7b8e054510b3f0a738375d17b08580ae400312937ac34bb2944294c049",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/build/project-carousel.js"
+                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/images/hero-portrait.png",
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/images/hero-portrait.png",
+                      "sha256":  "1582ccc172f6754dc73d29169dd84d53f7d92c375560a4d5176e7d73d4ae333f"
                   },
                   {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery.js",
-                      "sha256":  "d0552fa0f429b4a7deeff35c82c84db2c725507afa7df906bad2aa5608a335fe",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery3D.js",
-                      "sha256":  "cf53aae6e2b9b3ae3b250321c5264a411333d44e77e370e3c8bf1e84f17c9463",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/CircularGallery3D.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/Prism.js",
-                      "sha256":  "4583199bd4cfa301b0a8973267e96a18c87d1f28afcbd7305d3c330cfb938125",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/Prism.js"
+                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/ProjectCarousel.js",
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/ProjectCarousel.js",
+                      "sha256":  "cb9c9b54a1aab542ed3504bddc9c82cf6ef27163e85dcdfeb4dd8284508bfe92"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/RagAssistant.js",
-                      "sha256":  "d7d8e0296639c1d4c89a6ffccd7092423814041a7bef70458be610ca1b0fceb9",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/RagAssistant.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/components/ShinyText.js",
-                      "sha256":  "cd522a1d0387e21200cf54ca0d7553034332d1aeabc2f259e5da91c44db55d79",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/ShinyText.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/data/navigation-items.js",
-                      "sha256":  "3a043c5a526da16347e4407d78122debde0740e429f612a47d7e9742a65ae431",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/data/navigation-items.js"
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/components/RagAssistant.js",
+                      "sha256":  "870cd337722bbfe0cc46c2094323d20c07c146a72fd4be346875803c9f048f5f"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/homepage.css",
-                      "sha256":  "d8b8364d8afd31aa105f41226abed2b0ef5ce10609daea903c97d084ba1537f2",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/homepage.css"
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/homepage.css",
+                      "sha256":  "08ac6f197bff9e25cd340f64647e908d8f9771bebb995f88294837ddecc87116"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/homepage.js",
-                      "sha256":  "bf2be74020a16c652f65c361487fb4f16a4472332a510098cf80b4f5cd14c11d",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/homepage.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/pages/about.css",
-                      "sha256":  "34194b5108912abe9b423f068a32ddc5e00090264601a51dd28313f920fcfc14",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/pages/about.css"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/pages/projects.css",
-                      "sha256":  "1f03c29a55020f2a662af39874cbb05036d59f4fb5a078f5103e4b4f51084391",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/pages/projects.css"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/project-carousel.js",
-                      "sha256":  "b5005192aefe9ca397ade498d3bfb0ea5318538eec166a52b0bea46ad2925385",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/project-carousel.js"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/assets/src/projects-page.js",
-                      "sha256":  "7465d97e2d9e653ac775459a8d9e209ce8ddb21d96879e6b359320099cd79a52",
-                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/projects-page.js"
+                      "target_path":  "wordpress/themes/zwd-portfolio/assets/src/homepage.js",
+                      "sha256":  "1987ea4f2a7d1023fc977993282ef4005bd56617685fa2f765de4c6966b0c475"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/functions.php",
-                      "sha256":  "e86ff86192dea11116fafd5530b8f5b6510f12d04fc831bacbf7d7a77b34e5af",
-                      "target_path":  "wordpress/themes/zwd-portfolio/functions.php"
+                      "target_path":  "wordpress/themes/zwd-portfolio/functions.php",
+                      "sha256":  "10cb355626196bdf4e89a5f61ab75c0c3de0df341b687eaf8eb8d00e160107b9"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/index.php",
-                      "sha256":  "4708da40ff7fd0249aad990de1dcd522cb62ea5530c9517e7bcfca256fff7fe2",
-                      "target_path":  "wordpress/themes/zwd-portfolio/index.php"
+                      "target_path":  "wordpress/themes/zwd-portfolio/index.php",
+                      "sha256":  "4708da40ff7fd0249aad990de1dcd522cb62ea5530c9517e7bcfca256fff7fe2"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/LICENSE",
-                      "sha256":  "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
-                      "target_path":  "wordpress/themes/zwd-portfolio/LICENSE"
+                      "target_path":  "wordpress/themes/zwd-portfolio/LICENSE",
+                      "sha256":  "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/parts/footer.html",
-                      "sha256":  "50e7b698ca9473765f3c7c9072261227f41c0883e90e266dee9f1b54c1e340f5",
-                      "target_path":  "wordpress/themes/zwd-portfolio/parts/footer.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/parts/footer.html",
+                      "sha256":  "7b20b9b4c61f7c43ad72fc437f4f7c26cfd190361f79500f310f7adc10480871"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/parts/header.html",
-                      "sha256":  "62a54e9d69dfd53fbd7a82154b4d84c98c7d78f1b38318c0ff0c5e830e6eb19c",
-                      "target_path":  "wordpress/themes/zwd-portfolio/parts/header.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/parts/header.html",
+                      "sha256":  "1b6e61bd1aaff560de9fe62046e991691982318bd61f32369e11a02538ed1c26"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/README.md",
-                      "sha256":  "2e2be84e00070dd9fc61f382ccd2855044608a8e0b6645c74bbba4935ce3731f",
-                      "target_path":  "wordpress/themes/zwd-portfolio/README.md"
+                      "target_path":  "wordpress/themes/zwd-portfolio/README.md",
+                      "sha256":  "2e2be84e00070dd9fc61f382ccd2855044608a8e0b6645c74bbba4935ce3731f"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/style.css",
-                      "sha256":  "3f4854a10049318a07677c0f5f1d90b342953f23821c6696865b480b59a7fe4c",
-                      "target_path":  "wordpress/themes/zwd-portfolio/style.css"
+                      "target_path":  "wordpress/themes/zwd-portfolio/style.css",
+                      "sha256":  "ff319e68df6460247b123ec11c1c124cd899fb306882678354e0869a223464dc"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/404.html",
-                      "sha256":  "7a5c3eaf5d04994627973cde837d859200df243274c5a77d5f6255a3d3a8b88f",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/404.html"
-                  },
-                  {
-                      "source_path":  "src/wordpress/themes/zwd-portfolio/templates/archive-project.html",
-                      "sha256":  "673b919a36662395c395a5d5a429c18374a8e6aa1b140b763f44f6ecf3d54297",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/archive-project.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/404.html",
+                      "sha256":  "7a5c3eaf5d04994627973cde837d859200df243274c5a77d5f6255a3d3a8b88f"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/front-page.html",
-                      "sha256":  "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/front-page.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/front-page.html",
+                      "sha256":  "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/index.html",
-                      "sha256":  "cd3bf5cf2423d8c323c1cbdc2f468f94b65e7c11ecbfcb4d139e2007c8ef65ff",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/index.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/index.html",
+                      "sha256":  "cd3bf5cf2423d8c323c1cbdc2f468f94b65e7c11ecbfcb4d139e2007c8ef65ff"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/page.html",
-                      "sha256":  "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/page.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/page.html",
+                      "sha256":  "7fd23136977dad1397cd7c0f963b7cceb5348f09734f2faae870bfbfc70a2dbd"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/single.html",
-                      "sha256":  "27ccfd99552987a317fe7d28ac58ca38bf0419cf3abf7dbd321a2d0b5602f466",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/single.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/single.html",
+                      "sha256":  "27ccfd99552987a317fe7d28ac58ca38bf0419cf3abf7dbd321a2d0b5602f466"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/templates/single-project.html",
-                      "sha256":  "c04ad7f9aef2b3d435c2e2c59cffb78435bc6174122190371ec01bfa7155db16",
-                      "target_path":  "wordpress/themes/zwd-portfolio/templates/single-project.html"
+                      "target_path":  "wordpress/themes/zwd-portfolio/templates/single-project.html",
+                      "sha256":  "c6fc62b17cc0cd5dc03dbae94a453d9dc825b3c0583f5b294c0af1fe9851b7e4"
                   },
                   {
                       "source_path":  "src/wordpress/themes/zwd-portfolio/theme.json",
-                      "sha256":  "cf7add481ef524d69a7490acd5e9d9523a4e5c9b54d9b7bdb91e32f0baf1048c",
-                      "target_path":  "wordpress/themes/zwd-portfolio/theme.json"
+                      "target_path":  "wordpress/themes/zwd-portfolio/theme.json",
+                      "sha256":  "90e20fc1e0215b38f9e34084b3de1ff3308ac7168be57e456e6477131035e4d8"
                   }
               ]
 }

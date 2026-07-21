@@ -57,7 +57,7 @@ export function RagAssistant() {
       h('label', { className: 'screen-reader-text', htmlFor: 'zwd-rag-question' }, '向个人助手提问'),
       h('input', {
         id: 'zwd-rag-question', value: question, maxLength: 500,
-        placeholder: '问我任何关于经历、项目或能力的问题…',
+        placeholder: '问任何关于钟伟达的问题…',
         onChange: event => setQuestion(event.target.value),
       }),
       h('button', { type: 'submit', disabled: state.status === 'loading' }, state.status === 'loading' ? '回答中…' : '发送')
