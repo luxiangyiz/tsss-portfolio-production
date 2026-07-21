@@ -13,7 +13,7 @@
     },
     {
       "path": ".github/workflows/verify.yml",
-      "sha256": "ef1e84f8fa905e2c4900f058a74fa114aa650ca40f91c92eedb9494ed2ef915b"
+      "sha256": "cbc4c4c60085c6cfb186ff1d6f3f56581ad658f4dce4bf15cdbc47accf98ee0d"
     },
     {
       "path": ".gitignore",
@@ -513,7 +513,7 @@
     },
     {
       "path": "tools/verify-repository.ps1",
-      "sha256": "36ffbd893b3d01e01965fde9c0a0c1a14f67e3c90af2baa6d86f2399c12b4870"
+      "sha256": "f55b1afda045c5521846344651142df10364577b6f7e9cdcbd23fcef98575d1d"
     },
     {
       "path": "wordpress/plugins/zwd-portfolio-core/zwd-portfolio-core.php",

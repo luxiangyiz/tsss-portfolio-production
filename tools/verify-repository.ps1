@@ -111,7 +111,7 @@ $requiredFiles = @(
     "rag-api/.env.example",
     "rag-api/.env.demo.example",
     "rag-api/configs/rag_config.public.yaml",
-    "wordpress/themes/zwd-portfolio/assets/src/data/navigation-items.js",
+    "wordpress/themes/zwd-portfolio/assets/src/components/ProjectCarousel.js",
     ".github/workflows/verify.yml",
     ".gitleaks.toml",
     "manifests/source-sync-manifest.json",
